@@ -1,0 +1,33 @@
+@startuml
+class StartMenu
+StartMenu : -passWord
+StartMenu : -userName
+StartMenu : + userLogin()
+StartMenu : + userSignup()
+
+class MainMenu
+MainMenu : +searchMovie()
+MainMenu : +SearchCategory()
+MainMenu : +movieWatched()
+MainMenu : +watchList()
+
+class Users
+Users : +userFileIo()
+
+class MovieDatabase
+MovieDatabase : +movieFileIo()
+
+class MovieChoices
+MovieChoices : +playMovie()
+MovieChoices : +safeMovie()
+MovieChoices : +watchLater()
+MovieChoices : +deleteMovieFromList()
+
+
+MainMenu *-- MovieDatabase
+MovieDatabase *-- MovieChoices
+StartMenu *-- Users
+StartMenu --* Users
+
+
+@enduml
