@@ -1,7 +1,9 @@
 @startuml
+
+class JflixControl
+
 class StartMenu
-StartMenu : -passWord
-StartMenu : -userName
+
 StartMenu : + userLogin()
 StartMenu : + userSignup()
 
@@ -11,8 +13,14 @@ MainMenu : +SearchCategory()
 MainMenu : +movieWatched()
 MainMenu : +watchList()
 
-class Users
-Users : +userFileIo()
+class Userinfo
+Userinfo : +userFileIo()
+
+
+class User
+User : -passWord
+User : -userName
+
 
 class MovieDatabase
 MovieDatabase : +movieFileIo()
@@ -26,8 +34,8 @@ MovieChoices : +deleteMovieFromList()
 
 MainMenu *-- MovieDatabase
 MovieDatabase *-- MovieChoices
-StartMenu *-- Users
-StartMenu --* Users
+StartMenu *-- Userinfo
+StartMenu --* Userinfo
 
 
 @enduml
