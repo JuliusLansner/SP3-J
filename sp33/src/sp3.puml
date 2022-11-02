@@ -20,7 +20,7 @@ Userinfo : +userFileIo()
 class User
 User : -passWord
 User : -userName
-
+User : etc
 
 class MovieDatabase
 MovieDatabase : +movieFileIo()
@@ -30,6 +30,21 @@ MovieChoices : +playMovie()
 MovieChoices : +safeMovie()
 MovieChoices : +watchLater()
 MovieChoices : +deleteMovieFromList()
+
+class movie
+movie : +name
+movie : +year
+movie : +rating
+movie : etc
+
+class movieScanner
+
+class seriesScanner
+
+class series
+
+interface playable
+
 
 
 MainMenu *-- MovieDatabase
