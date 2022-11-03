@@ -7,7 +7,7 @@ public class User {
     String passWord;
     String UP;
 
-    public void UserLogin(String userName, String passWord) {
+    public void x(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
 
@@ -21,11 +21,11 @@ public class User {
         return passWord.equals("abc");
     }
     private String getUserRegister() {
-        System.out.println("You are about to register a new account. Please write your desired ..");
+       /* System.out.println("You are about to register a new account. Please write your desired ..");
         System.out.println("Username:   ");
          userName = input.nextLine();
         System.out.println("Password:   ");
-         passWord = input.nextLine();
+         passWord = input.nextLine();*/
          UP = userName+passWord;
         return UP;
         //u=seb p=123
@@ -36,7 +36,7 @@ public class User {
 
     }
     public String getLogin() {
-        return UP;
+        return getUserRegister();
     }
 
 }
