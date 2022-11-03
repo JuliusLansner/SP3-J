@@ -11,7 +11,7 @@ public class User {
         this.passWord = passWord;
     }
 
-    //---- get user login information ----
+    //---- getter, user login information ----
     public String getUserName() {
         return userName;
     }
@@ -21,19 +21,15 @@ public class User {
 
     //---- user login / register ---- WIP
     public boolean userLogin() {
-        if(passWord.equals("abc")) {
-            return true;
-        }
-        return false;
+        return passWord.equals("abc");
     }
     private String userRegister() {
         System.out.println("You are about to register a new account. Please write your desired ..");
-        System.out.println("Username: ");
+        System.out.println("Username:   ");
         String userName = input.nextLine();
-        System.out.println("Password: ");
+        System.out.println("Password:   ");
         String passWord = input.nextLine();
 
-        String userLoginInfo = userName + passWord;
-        return userLoginInfo;
+        return userName + passWord;
     }
 }
