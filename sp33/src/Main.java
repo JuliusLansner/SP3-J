@@ -1,7 +1,20 @@
 package sp33.src;
 
+import java.util.ArrayList;
+
 public class Main {
+
+
+
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        JflixDB movies = new JflixDB();
+        System.out.println();
+
+
+
+
+
     }
 }
