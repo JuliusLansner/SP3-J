@@ -35,7 +35,7 @@ public class JflixDB {
         for (int i = 0; i < data.size(); i++) {
             String s = data.get(i);// puts strings from data into s
 
-            String[] values = s.split(",");// Makes an array with each string from data, and splits them for each comma
+            String[] values = s.split(",");// Makes arrays with each string from data, and splits them for each comma
 
            //Gives a variable for each index on the lines.
             String name = values[0];
@@ -49,6 +49,7 @@ public class JflixDB {
 
         }
 
+        System.out.println(list);
         return list;
 
     }

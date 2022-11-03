@@ -6,16 +6,22 @@ public class MainMenu {
 
 
     public String search(String movie){
+
         JflixDB movies = new JflixDB();
 
         movies.movieListCategorize(movies.getMovies());//funktion movieListCategorize takes an array movies.getMovies and categorize it
-        ArrayList<String> movieNames = new ArrayList<>();
         ArrayList<String>stuff = movies.movieListCategorize(movies.getMovies());
-        for (int i = 0; i < stuff.size(); i++) {
 
-           if(stuff.get(i).equals(movie)){
-               return movie;
-           }
+        ArrayList<String> movieNames = new ArrayList<>();
+
+        for (int i = 0; i < stuff.size() ; i++) {
+            movieNames.add(stuff.get(i));
+        }
+
+        for (int i = 0; i < movieNames.size(); i++) {
+          if ((movieNames.get(i)).equals(movie)){
+              return movie;
+          }
         }
 
         return "not fount";
