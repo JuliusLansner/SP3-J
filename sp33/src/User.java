@@ -5,31 +5,38 @@ public class User {
     Scanner input = new Scanner(System.in);
     String userName;
     String passWord;
+    String UP;
 
-    public User(String userName, String passWord) {
+    public void UserLogin(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
+
     }
 
     //---- getter, user login information ----
-    public String getUserName() {
-        return userName;
-    }
-    public String getPassWord() {
-        return passWord;
-    }
+
 
     //---- user login / register ---- WIP
     public boolean userLogin() {
         return passWord.equals("abc");
     }
-    private String userRegister() {
+    private String getUserRegister() {
         System.out.println("You are about to register a new account. Please write your desired ..");
         System.out.println("Username:   ");
-        String userName = input.nextLine();
+         userName = input.nextLine();
         System.out.println("Password:   ");
-        String passWord = input.nextLine();
+         passWord = input.nextLine();
+         UP = userName+passWord;
+        return UP;
+        //u=seb p=123
+        //seb 123
+        //Username: seb
+        //password: 123
+        //if username+password = seb123
 
-        return userName + passWord;
     }
+    public String getLogin() {
+        return UP;
+    }
+
 }
