@@ -38,7 +38,7 @@ public class JflixDB {
 
             values = s.split(",");
 
-            //Gives a variable for each index on the lines.
+            //Gives a variable for each index
             String name = values[1];
             String year = values[2];
             String genre = values[3];

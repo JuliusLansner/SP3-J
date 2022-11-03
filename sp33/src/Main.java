@@ -11,7 +11,7 @@ public class Main {
 
 
         MainMenu mainmenu = new MainMenu();
-        System.out.println(mainmenu.search("1980"));
+        System.out.println(mainmenu.search("yy"));
 
 
     }
