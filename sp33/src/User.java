@@ -29,9 +29,9 @@ public class User {
     private String userRegister() {
         System.out.println("You are about to register a new account. Please write your desired ..");
         System.out.println("Username: ");
-        String userName = String.valueOf(input.nextInt());
+        String userName = input.nextLine();
         System.out.println("Password: ");
-        String passWord = String.valueOf(input.nextInt());
+        String passWord = input.nextLine();
 
         String userLoginInfo = userName + passWord;
         return userLoginInfo;
