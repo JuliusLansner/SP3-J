@@ -29,27 +29,29 @@ public class JflixDB {
         return data;
     }
 
-    public ArrayList<String> movieListCategorize(ArrayList<String> data){
+    public ArrayList<String> movieListCategorize(ArrayList<String> data) {
         ArrayList<String> list = new ArrayList<>();
 
+        String[] values = new String[0];
         for (int i = 0; i < data.size(); i++) {
             String s = data.get(i);// puts strings from data into s
 
-            String[] values = s.split(",");// Makes arrays with each string from data, and splits them for each comma
+            values = s.split(",");
 
-           //Gives a variable for each index on the lines.
-            String name = values[0];
-            String year = values[1];
-            String genre = values[2];
+            //Gives a variable for each index on the lines.
+            String name = values[1];
+            String year = values[2];
+            String genre = values[3];
 
             //adds all the arrays to the arraylist list
-            list.add(name);
+            list.add("\n" + name);
             list.add(year);
             list.add(genre);
 
-        }
 
-        System.out.println(list);
+        }
+        //System.out.println(list);
+
         return list;
 
     }

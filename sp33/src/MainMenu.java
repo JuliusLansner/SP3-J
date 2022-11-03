@@ -10,20 +10,17 @@ public class MainMenu {
         JflixDB movies = new JflixDB();
 
         movies.movieListCategorize(movies.getMovies());//funktion movieListCategorize takes an array movies.getMovies and categorize it
+
         ArrayList<String>stuff = movies.movieListCategorize(movies.getMovies());
 
-        ArrayList<String> movieNames = new ArrayList<>();
-
-        for (int i = 0; i < stuff.size() ; i++) {
-            movieNames.add(stuff.get(i));
+        for (int i = 0; i < stuff.size(); i++) {
+            if(stuff.get(i).contains(movie)){
+                return movie;
+            }
         }
 
-        for (int i = 0; i < movieNames.size(); i++) {
-          if ((movieNames.get(i)).equals(movie)){
-              return movie;
-          }
-        }
 
+        System.out.println(stuff);
         return "not fount";
     }
 
