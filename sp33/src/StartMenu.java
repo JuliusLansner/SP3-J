@@ -1,12 +1,9 @@
 package sp33.src;
-
 import java.util.Scanner;
-
 public class StartMenu {
-
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static int loginScreen(String s) {
+    public static int loginScreen() {
         System.out.println("Welcome to Jflix");
         System.out.println("Please choose an existing user, or create a new one");
         System.out.println("1 - login to user 1");
@@ -41,16 +38,10 @@ public class StartMenu {
     }
 }
 
-
 /*
-
-Print a welcome/start menu - DONE
-
-Takes a user input. Log in to existing profile or create a new profile.
-
-If user choses an existing profile display MainMenu
-
-If user choses to create a new profile display new profile class?
-
-
- */
+WHAT DOES THE STARTMENU CLASS NEED TO DO?
+1. Print a welcome/start menu - DONE
+2. Take a user input and process it. Either Log in to existing profile or create a new profile.
+3. If a user chooses an existing profile display MainMenu
+4. If a user chooses to create a new profile, display NewUser
+*/
