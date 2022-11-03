@@ -8,13 +8,12 @@ public class Main {
 
 
     public static void main(String[] args) {
+        JflixDB db = new JflixDB();
 
-        JflixDB movies = new JflixDB();
-        System.out.println(movies.Movies());
         MainMenu mainmenu = new MainMenu();
-
-        System.out.println(mainmenu.search("Titanic 1980 Romance"));
-
+        //System.out.println(db.getMovies());
+        System.out.println(mainmenu.search("Titanic"));
+        //System.out.println(db.movieListCategorize(db.getMovies()));
 
     }
 }
