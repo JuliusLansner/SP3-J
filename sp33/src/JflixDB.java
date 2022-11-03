@@ -11,6 +11,7 @@ public class JflixDB {
     public JflixDB(){
 
     }
+
     public  ArrayList<String> Movies() {
         File file = new File("Data/Movies.txt");
         ArrayList<String> data = new ArrayList<>();
@@ -24,7 +25,9 @@ public class JflixDB {
         } catch (FileNotFoundException e) {
             data = null;
         }
+
         return data;
     }
+
 
 }
