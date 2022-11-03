@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class User {
     Scanner input = new Scanner(System.in);
     String userName;
-    String passWord; //String+int?
+    String passWord;
 
     public User(String userName, String passWord) {
         this.userName = userName;
@@ -30,25 +30,10 @@ public class User {
         System.out.println("You are about to register a new account. Please write your desired ..");
         System.out.println("Username: ");
         String userName = String.valueOf(input.nextInt());
-        System.out.println("");
+        System.out.println("Password: ");
+        String passWord = String.valueOf(input.nextInt());
 
-
-        return userName;
-        return passWord;
-    }
-    //---- user: getter & setter ----
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassWord() {
-        return passWord;
-    }
-
-    public void setPassWord() {
-        this.passWord = passWord;
+        String userLoginInfo = userName + passWord;
+        return userLoginInfo;
     }
 }
