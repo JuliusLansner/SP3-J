@@ -6,7 +6,7 @@ public class User {
     String userName;
     String passWord;
 
-    public User(String userName, String passWord) {
+    public void userLogin(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
     }
@@ -20,15 +20,22 @@ public class User {
     }
 
     //---- user login / register ---- WIP
-    public boolean userLogin() {
-        return passWord.equals("abc");
-    }
-    private String userRegister() {
-        System.out.println("You are about to register a new account. Please write your desired ..");
+    public String getUserLogin() {
+        System.out.println("You are about to login to your account. Please write the following ..");
         System.out.println("Username:   ");
-        String userName = input.nextLine();
+        userName = input.nextLine();
         System.out.println("Password:   ");
-        String passWord = input.nextLine();
+        passWord = input.nextLine();
+
+        return userName + passWord;
+    }
+
+    private String userRegister() {
+        System.out.println("You are about to register a new account. Please write the following ..");
+        System.out.println("Username:   ");
+        userName = input.nextLine();
+        System.out.println("Password:   ");
+        passWord = input.nextLine();
 
         return userName + passWord;
     }
