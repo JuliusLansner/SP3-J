@@ -36,15 +36,15 @@ public class JflixDB {
         for (int i = 0; i < data.size(); i++) {
             String s = data.get(i);// puts strings from data into s
 
-            values = s.split(",");
+            values = s.split(";");
 
             //Gives a variable for each index
-            String name = values[1];
-            String year = values[2];
-            String genre = values[3];
+            String name = values[0];
+            String year = values[1];
+            String genre = values[2];
 
             //adds all the arrays to the arraylist list
-            list.add("\n" + name);
+            list.add("\n"+name);
             list.add(year);
             list.add(genre);
 

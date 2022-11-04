@@ -13,14 +13,16 @@ public class MainMenu {
 
         ArrayList<String>stuff = movies.movieListCategorize(movies.getMovies());
 
+
         for (int i = 0; i < stuff.size(); i++) {
-            if(stuff.get(i).contains(movie)){
+            if(stuff.get(i).equals(movie)){
+                System.out.println(stuff);
                 return movie;
             }
         }
 
 
-
+        System.out.println(stuff);
         return "not found";
     }
 
