@@ -10,9 +10,19 @@ public class UserDB extends User{
 
     //take info from user signup
     //get username and password, save in a text file
-    File loginFile = new File("C:/Login.txt");
+    public  ArrayList<String> getUsers() {
+        File file = new File("Data/userDB.txt");
+        ArrayList<String> data = new ArrayList<>();
+        try {
+            Scanner input = new Scanner(file);
+            String str = input.nextLine();
 
+            while (input.hasNextLine()) {
+                data.add("\n,"+input.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            data = null;
+        }
 
-
-    String XD = getLogin();
-}
+        return data;
+    }
