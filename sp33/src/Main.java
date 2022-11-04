@@ -11,7 +11,7 @@ public class Main {
 
 
         MainMenu mainmenu = new MainMenu();
-        System.out.println(mainmenu.search("yy"));
+        System.out.println(mainmenu.search("Dude"));
 
 
     }
