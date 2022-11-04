@@ -1,33 +1,73 @@
 @startuml
+
+class JflixControl
+
 class StartMenu
-StartMenu : -passWord
-StartMenu : -userName
+
 StartMenu : + userLogin()
 StartMenu : + userSignup()
 
 class MainMenu
-MainMenu : +searchMovie()
+MainMenu : +search()
 MainMenu : +SearchCategory()
-MainMenu : +movieWatched()
+MainMenu : +contentWatched()
 MainMenu : +watchList()
 
-class Users
-Users : +userFileIo()
-
-class MovieDatabase
-MovieDatabase : +movieFileIo()
-
-class MovieChoices
-MovieChoices : +playMovie()
-MovieChoices : +safeMovie()
-MovieChoices : +watchLater()
-MovieChoices : +deleteMovieFromList()
+class Userinfo
+Userinfo : +userFileIo()
 
 
-MainMenu *-- MovieDatabase
-MovieDatabase *-- MovieChoices
-StartMenu *-- Users
-StartMenu --* Users
+class User
+User : -passWord
+User : -userName
+User : etc
+
+class Database
+Database : +FileIo()
+
+class Choices
+Choices : +play()
+Choices : +watchLater()
+Choices : +deleteContentFromList()
+
+class Movie
+Movie : +name
+Movie : +year
+Movie : +rating
+Movie : etc
+
+class movieScanner
+movieScanner : +categorize()
+
+class seriesScanner
+seriesScanner : +categorize()
+
+class series
+series : +name
+series : +year
+series : +rating
+series : etc
+
+interface playable
+
+movieScanner *-- Database
+seriesScanner *-- Database
+Movie *-- movieScanner
+series *-- seriesScanner
+
+StartMenu *-- MainMenu
+JflixControl *-- StartMenu
+MainMenu *-- Database
+Database *-- Choices
+
+User *--* Userinfo
+
+StartMenu *--* Userinfo
+
+playable *-- Movie
+playable *-- series
+
+
 
 
 @enduml
