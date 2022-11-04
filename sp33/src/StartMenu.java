@@ -1,4 +1,4 @@
-package sp33.src;
+/*package sp33.src;
 import java.util.Scanner;
 public class StartMenu {
     private static final Scanner scanner = new Scanner(System.in);
@@ -22,19 +22,19 @@ public class StartMenu {
         }
     }
     public static void loginExistingUser(User user){
-        if (user.equals(existingUser)){
+   //   if (user.equals(existingUser)){
             //display main menu?
         }
-    }
+   // }
     public static void newUser(User user){
-        if (user.equals(newUser)){
+      //  if (user.equals(newUser)){
             //display create a new profile
             //refer to createNewProfileMethod
         }
     }
 }
 
-/*
+
 WHAT DOES THE STARTMENU CLASS NEED TO DO?
 1. Print a welcome/start menu - DONE
 2. Take a user input and process it. Either Log in to existing profile or create a new profile. - DONE? DOES IT WORK?

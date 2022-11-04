@@ -10,8 +10,9 @@ public class Main {
     public static void main(String[] args) {
 
 
-        MainMenu mainmenu = new MainMenu();
-        System.out.println(mainmenu.search("yy"));
+
+        UserDB test = new UserDB();
+        test.verifyUserLogin(test.getUsername(), test.getPassword(),"Data/userDB.txt",",");
 
 
     }

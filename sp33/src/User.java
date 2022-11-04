@@ -5,13 +5,8 @@ public class User {
     Scanner input = new Scanner(System.in);
     String userName;
     String passWord;
-    String UP;
 
-<<<<<<< HEAD
     public void userLogin(String userName, String passWord) {
-=======
-    public void UserLogin(String userName, String passWord) {
->>>>>>> StartMenu
         this.userName = userName;
         this.passWord = passWord;
 
@@ -19,61 +14,19 @@ public class User {
 
     //---- getter, user login information ----
 
-
-    //---- user login / register ---- WIP
-<<<<<<< HEAD
-    public String getUserLogin() {
-        System.out.println("You are about to login to your account. Please write the following ..");
-        System.out.println("Username:   ");
-        userName = input.nextLine();
-        System.out.println("Password:   ");
-        passWord = input.nextLine();
-
-        return userName + passWord;
-    }
-
-    private String userRegister() {
-        System.out.println("You are about to register a new account. Please write the following ..");
-        System.out.println("Username:   ");
-        userName = input.nextLine();
-        System.out.println("Password:   ");
-        passWord = input.nextLine();
-=======
-    public boolean userLogin() {
-        return passWord.equals("abc");
-    }
-    private String getUserRegister() {
-                System.out.println("You are about to register a new account. Please write your desired ..");
-                System.out.println("Username:   ");
+        public String getUsername() {
                 userName = input.nextLine();
-                System.out.println("Password:   ");
-                passWord = input.nextLine();
-                UP = userName + passWord;
-                return UP;
-
+                return userName;
             }
-        private String getUsername()
-                userMame = inputnextline()
-                        return userName
 
-
-
-                private String getpassword()
-                paassword = inputnextline()
-                return password
-
-
-
-        //u=seb p=123
-        //seb 123
-        //Username: seb
-        //password: 123
-        //if username+password = seb123
->>>>>>> StartMenu
-
+         public String getPassword() {
+            passWord = input.nextLine();
+                return passWord;
     }
-    public String getLogin() {
-        return UP;
-    }
+
+
+
+
+
 
 }
