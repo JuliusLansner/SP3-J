@@ -5,24 +5,54 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UserDB extends User{
+public class UserDB extends User {
 
 
     //take info from user signup
     //get username and password, save in a text file
-    public  ArrayList<String> getUsers() {
+    public ArrayList<String> getUsers() {
         File file = new File("Data/userDB.txt");
-        ArrayList<String> data = new ArrayList<>();
+        ArrayList<String> userData = new ArrayList<>();
         try {
             Scanner input = new Scanner(file);
-            String str = input.nextLine();
-
-            while (input.hasNextLine()) {
-                data.add("\n,"+input.nextLine());
+            //pseudo kode
+            if(){
+                //mainmenu();
             }
         } catch (FileNotFoundException e) {
-            data = null;
+            userData = null;
         }
 
-        return data;
+        return userData;
     }
+
+
+
+
+    public ArrayList<String> movieListCategorize(ArrayList<String> data) {
+        ArrayList<String> list = new ArrayList<>();
+
+        String[] values = new String[0];
+        for (int i = 0; i < data.size(); i++) {
+            String s = data.get(i);// puts strings from data into s
+
+            values = s.split(",");
+
+            //Gives a variable for each index
+            String name = values[1];
+            String year = values[2];
+            String genre = values[3];
+
+            //adds all the arrays to the arraylist list
+            list.add("\n" + name);
+            list.add(year);
+            list.add(genre);
+
+
+        }
+        //System.out.println(list);
+
+        return list;
+
+    }
+}

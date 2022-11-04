@@ -43,13 +43,27 @@ public class User {
         return passWord.equals("abc");
     }
     private String getUserRegister() {
-        System.out.println("You are about to register a new account. Please write your desired ..");
-        System.out.println("Username:   ");
-         userName = input.nextLine();
-        System.out.println("Password:   ");
-         passWord = input.nextLine();
-         UP = userName+passWord;
-        return UP;
+                System.out.println("You are about to register a new account. Please write your desired ..");
+                System.out.println("Username:   ");
+                userName = input.nextLine();
+                System.out.println("Password:   ");
+                passWord = input.nextLine();
+                UP = userName + passWord;
+                return UP;
+
+            }
+        private String getUsername()
+                userMame = inputnextline()
+                        return userName
+
+
+
+                private String getpassword()
+                paassword = inputnextline()
+                return password
+
+
+
         //u=seb p=123
         //seb 123
         //Username: seb
