@@ -16,13 +16,13 @@ public class MainMenu {
 
         for (int i = 0; i < stuff.size(); i++) {
             if(stuff.get(i).equals(movie)){
-                System.out.println(stuff);
-                return movie;
+
+                return "Vi har filmen" + movie;
             }
         }
 
-
-        System.out.println(stuff);
+        //System.out.println(stuff);
+        //System.out.println(stuff.get(1));
         return "not found";
     }
 

@@ -11,7 +11,7 @@ public class Main {
 
 
         MainMenu mainmenu = new MainMenu();
-        System.out.println(mainmenu.search("The Godfather"));
+        System.out.println(mainmenu.search("Good Will Hunting"));
 
 
     }

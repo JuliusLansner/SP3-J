@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JflixDB {
-//hey
+
     public JflixDB(){
 
     }
@@ -20,7 +20,7 @@ public class JflixDB {
             String str = input.nextLine();//ignorer header
 
             while (input.hasNextLine()) {
-                data.add("\n,"+input.nextLine());//Adds input on the next line.
+                data.add(input.nextLine());//Adds input on the next line.
             }
         } catch (FileNotFoundException e) {
             data = null;
@@ -40,13 +40,11 @@ public class JflixDB {
 
             //Gives a variable for each index
             String name = values[0];
-            String year = values[1];
-            String genre = values[2];
+
 
             //adds all the arrays to the arraylist list
-            list.add("\n"+name);
-            list.add(year);
-            list.add(genre);
+            list.add(name);
+
 
 
         }
