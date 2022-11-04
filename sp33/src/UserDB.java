@@ -15,7 +15,7 @@ public class UserDB extends User {
     String passWordInput = getPassword();
     String filepath = "Data/userDB.txt";
 
-    boolean loginSuccess = verifyUserLogin(userNameInput,passWordInput,filepath,",");
+    //boolean loginSuccess = verifyUserLogin(userNameInput,passWordInput,filepath,",");
 
    public static boolean verifyUserLogin(String username, String password, String filepath, String splitter){
     String currentLine;
