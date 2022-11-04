@@ -15,12 +15,14 @@ public class User {
     //---- getter, user login information ----
 
         public String getUsername() {
-                userName = input.nextLine();
+            System.out.println("Username: ");
+            userName = input.nextLine();
                 return userName;
             }
 
          public String getPassword() {
-            passWord = input.nextLine();
+             System.out.println("Password: ");
+             passWord = input.nextLine();
                 return passWord;
     }
 
