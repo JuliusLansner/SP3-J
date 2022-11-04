@@ -11,13 +11,12 @@ public class UserDB extends User {
     //take info from user signup
     //get username and password, save in a text file
 
-    String userNameInput = getUsername();
-    String passWordInput = getPassword();
+
     String filepath = "Data/userDB.txt";
 
     //boolean loginSuccess = verifyUserLogin(userNameInput,passWordInput,filepath,",");
 
-   public static boolean verifyUserLogin(String username, String password, String filepath, String splitter){
+   public  boolean verifyUserLogin(String username, String password, String filepath, String splitter){
     String currentLine;
     String userData[];
     try{
@@ -32,7 +31,7 @@ public class UserDB extends User {
         // here, we check if the username and the password match ( userData[0] being username and [1] being password)
         // and they need to be on the same line of the text file. So if BOTH strings are true, then this if statement run.
         if(userData[0].equals(username) && userData[1].equals(password)){
-            System.out.println("lets fucking god finally");
+            System.out.println("Login successful...");
             return true;
         }
     }

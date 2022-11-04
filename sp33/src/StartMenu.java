@@ -10,20 +10,15 @@ public class StartMenu extends UserDB{
         System.out.println("Login to user 1: Press 1");
         System.out.println("Create a new user: Press 2");
         System.out.println("Enter your choice: ");
-        String answer;
-        answer = scanner.nextLine();
-        if (("1".equals(answer))) {
+        String answer = scanner.nextLine();
+        if (answer.contains("1")) {
             loginExistingUser();
-        }
-        if ("2".equals(answer)) {
-            System.out.println("ikke okay");
+
         }
     }
 
    public void loginExistingUser() {
-        if (scanner.equals("1")) {
             verifyUserLogin(getUsername(), getPassword(), "Data/userDB.txt", ",");
-        }
     }
 }
 
