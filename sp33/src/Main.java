@@ -11,8 +11,9 @@ public class Main {
 
 
         MainMenu mainmenu = new MainMenu();
-        System.out.println(mainmenu.search("Good Will Hunting"));
+        System.out.println(mainmenu.searchMovie("Good Will Hunting"));
 
+        System.out.println(mainmenu.searchYear(" 1939"));
 
     }
 }

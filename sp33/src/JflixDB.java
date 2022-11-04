@@ -42,8 +42,36 @@ public class JflixDB {
             String name = values[0];
 
 
-            //adds all the arrays to the arraylist list
+            //adds all the data on those values to the arraylist
             list.add(name);
+
+
+
+        }
+        //System.out.println(list);
+
+        return list;
+
+    }
+
+
+    public ArrayList<String> yearListCategorize(ArrayList<String> data) {
+        ArrayList<String> list = new ArrayList<>();
+
+        String[] values = new String[0];
+        for (int i = 0; i < data.size(); i++) {
+            String s = data.get(i);// puts strings from data into s
+
+            values = s.split(";");
+
+            //Gives a variable for each index
+            String name = values[0];
+            String year = values[1];
+
+
+            //adds all the data on those values to the arraylist
+            list.add(year+name);
+
 
 
 
