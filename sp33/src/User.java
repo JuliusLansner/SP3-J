@@ -16,9 +16,30 @@ public class User {
         userName = input.nextLine();
         return userName;
     }
+
     public String getPassWord() {
         passWord = input.nextLine();
         return passWord;
     }
 
+
+
+
+
+
+
+    
+
+
+
+
+  /* If we want to be able to change username and password at a later time
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+
+   */
 }
