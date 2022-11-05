@@ -3,82 +3,60 @@ package sp33.src;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class JflixDB {
-
+    Movie[] movies = new Movie[101];
     public JflixDB(){
 
     }
 
-    public  ArrayList<String> getMovies() {
-        File file = new File("Data/Movies.txt");
-        ArrayList<String> data = new ArrayList<>();
+
+    public String[] getMovies(){
+        String[] values = new String[100];
+        String header;
         try {
-            Scanner input = new Scanner(file);
-            String str = input.nextLine();//ignorer header
-
-            while (input.hasNextLine()) {
-                data.add(input.nextLine());//Adds input on the next line.
+            Scanner scan = new Scanner(new File("data/Movies.txt"));
+            header = scan.nextLine();
+            for (int i = 0; i < values.length; i++){
+                String s = scan.nextLine();
+                values[i] = s;
             }
-        } catch (FileNotFoundException e) {
-            data = null;
+        } catch (FileNotFoundException e){
+            System.out.println(e);
         }
-
-        return data;
-    }
-
-    public ArrayList<String> movieListCategorize(ArrayList<String> data) {
-        ArrayList<String> list = new ArrayList<>();
-
-        String[] values = new String[0];
-        for (int i = 0; i < data.size(); i++) {
-            String s = data.get(i);// puts strings from data into s
-
-            values = s.split(";");
-
-            //Gives a variable for each index
-            String name = values[0];
-
-
-            //adds all the data on those values to the arraylist
-            list.add(name);
-
-
-
-        }
-        //System.out.println(list);
-
-        return list;
-
+        return values;
     }
 
 
-    public ArrayList<String> yearListCategorize(ArrayList<String> data) {
-        ArrayList<String> list = new ArrayList<>();
 
-        String[] values = new String[0];
-        for (int i = 0; i < data.size(); i++) {
-            String s = data.get(i);// puts strings from data into s
 
-            values = s.split(";");
+
+
+    public Movie[] createMovieList(String[] data) {
+
+        for (int i = 0; i < data.length; i++) {
+            String s = data[i];// puts strings from data into s
+            String[]values = s.split(";");
+
+
 
             //Gives a variable for each index
             String name = values[0];
             String year = values[1];
+            String genre = values[2];
+            String rating = values[3];
+
+            Movie movies1 = new Movie(name,year,genre,rating);
 
 
-            //adds all the data on those values to the arraylist
-            list.add(year+name);
 
-
+            movies[i] = movies1;
 
 
         }
-        //System.out.println(list);
-
-        return list;
+        return movies;
 
     }
 
