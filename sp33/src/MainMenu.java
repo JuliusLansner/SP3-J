@@ -8,9 +8,7 @@ public class MainMenu {
 
     private String searchMovie() {
         JflixDB movies = new JflixDB();
-
         Scanner scan = new Scanner(System.in);
-        System.out.println("Search for movie: ");
         String input = scan.nextLine();
         ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
 
@@ -86,7 +84,7 @@ public class MainMenu {
 
 
       if(input.equals("1")){
-          menu.searchMovie();
+          System.out.println("Search for movie: ");
           return menu.searchMovie();
       }
 
