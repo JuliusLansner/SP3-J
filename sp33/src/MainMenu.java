@@ -89,12 +89,12 @@ public class MainMenu {
       }
 
       if(input.equals("2")){
-            menu.searchgenre();
+
             return menu.searchgenre();
       }
 
       if(input.equals("3")){
-            menu.searchYear();
+            
             return menu.searchYear();
       }
 
