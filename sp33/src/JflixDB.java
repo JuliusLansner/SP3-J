@@ -3,44 +3,48 @@ package sp33.src;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JflixDB {
-    Movie[] movies = new Movie[101];
+
     public JflixDB(){
 
     }
 
-
-    public String[] getMovies(){
-        String[] values = new String[100];
-        String header;
+    public ArrayList<String> getMovies(){
+        ArrayList<String>movies = new ArrayList<>();
+        String movie;
         try {
+
             Scanner scan = new Scanner(new File("data/Movies.txt"));
-            header = scan.nextLine();
-            for (int i = 0; i < values.length; i++){
-                String s = scan.nextLine();
-                values[i] = s;
+            String str = scan.nextLine();
+
+            while(scan.hasNextLine()){
+                movies.add(scan.nextLine());
             }
-        } catch (FileNotFoundException e){
-            System.out.println(e);
+
+
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
         }
-        return values;
+
+
+
+        return movies;
     }
 
 
 
 
+    public ArrayList<Movie> movieListCategorize(ArrayList<String> data) {
+        ArrayList<Movie> list = new ArrayList<>();
 
+        String[] values = new String[0];
+        for (int i = 0; i < data.size(); i++) {
+            String s = data.get(i);// puts strings from data into s
 
-    public Movie[] createMovieList(String[] data) {
-
-        for (int i = 0; i < data.length; i++) {
-            String s = data[i];// puts strings from data into s
-            String[]values = s.split(";");
-
-
+            values = s.split(";");
 
             //Gives a variable for each index
             String name = values[0];
@@ -48,15 +52,17 @@ public class JflixDB {
             String genre = values[2];
             String rating = values[3];
 
-            Movie movies1 = new Movie(name,year,genre,rating);
 
+            Movie movies1 = new Movie(name,genre,year,rating);
+            //adds all the data on those values to the arraylist
+            list.add(movies1);
 
-
-            movies[i] = movies1;
 
 
         }
-        return movies;
+
+
+        return list;
 
     }
 
