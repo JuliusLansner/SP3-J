@@ -45,6 +45,7 @@ public class MainMenu {
         if(listing.size()<1){
             return "Sorry we dont have any movies from that year";
         }
+        System.out.println(listing);
         return "We have these movies for that year: "+listing;
     }
 
@@ -71,6 +72,7 @@ public class MainMenu {
         if(listing.size()<1){
             return "Sorry we dont have that";
         }
+        System.out.println(listing);
         return "We have these movies for that genre : "+listing;
     }
 
@@ -94,7 +96,7 @@ public class MainMenu {
       }
 
       if(input.equals("3")){
-            
+
             return menu.searchYear();
       }
 
