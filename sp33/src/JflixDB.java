@@ -12,45 +12,55 @@ public class JflixDB {
 
     }
 
-    public  ArrayList<String> getMovies() {
-        File file = new File("Data/Movies.txt");
-        ArrayList<String> data = new ArrayList<>();
+    public ArrayList<String> getMovies(){
+        ArrayList<String>movies = new ArrayList<>();
+        String movie;
         try {
-            Scanner input = new Scanner(file);
-            String str = input.nextLine();//ignorer header
 
-            while (input.hasNextLine()) {
-                data.add("\n,"+input.nextLine());//Adds input on the next line.
+            Scanner scan = new Scanner(new File("data/Movies.txt"));
+            String str = scan.nextLine();
+
+            while(scan.hasNextLine()){
+                movies.add(scan.nextLine());
             }
-        } catch (FileNotFoundException e) {
-            data = null;
+
+
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
         }
 
-        return data;
+
+
+        return movies;
     }
 
-    public ArrayList<String> movieListCategorize(ArrayList<String> data) {
-        ArrayList<String> list = new ArrayList<>();
+
+
+
+    public ArrayList<Movie> movieListCategorize(ArrayList<String> data) {
+        ArrayList<Movie> list = new ArrayList<>();
 
         String[] values = new String[0];
         for (int i = 0; i < data.size(); i++) {
             String s = data.get(i);// puts strings from data into s
 
-            values = s.split(",");
+            values = s.split(";");
 
             //Gives a variable for each index
-            String name = values[1];
-            String year = values[2];
-            String genre = values[3];
+            String name = values[0];
+            String year = values[1];
+            String genre = values[2];
+            String rating = values[3];
 
-            //adds all the arrays to the arraylist list
-            list.add("\n" + name);
-            list.add(year);
-            list.add(genre);
+
+            Movie movies1 = new Movie(name,genre,year,rating);
+            //adds all the data on those values to the arraylist
+            list.add(movies1);
+
 
 
         }
-        //System.out.println(list);
+
 
         return list;
 
