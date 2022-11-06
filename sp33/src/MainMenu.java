@@ -7,6 +7,7 @@ public class MainMenu {
 
 
     private String searchMovie() {
+        MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
@@ -20,20 +21,25 @@ public class MainMenu {
             }
 
         }
-
+        System.out.println("Sorry we dont have that");
+        menu.searchMovie();
         return "Sorry we dont have that";
     }
 
 
     private String searchYear() {
+        MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
         ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
         ArrayList<Movie> listing = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("What year would you like to search for: ");
+        System.out.println("What year would you like to search for?: ");
         String input = scan.nextLine();
-
+        if(input.length()<4){
+            System.out.println("Sorry! We dont have any movies for that year..");
+            menu.searchYear();
+        }
 
         for (int i = 0; i <search.size() ; i++) {
             if(search.get(i).year.contains(input)){
@@ -50,16 +56,23 @@ public class MainMenu {
     }
 
     private String searchgenre() {
+        MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
         ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
         ArrayList<Movie> listing = new ArrayList<>();//An array to hold all the movies containing the genre in the input
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("What genre do you want: ");
+        System.out.println("What genre do you want?: ");
         String input = (scan.nextLine());
 
 
         String input2 = input.replace(input.substring(0,1),input.substring(0,1).toUpperCase()); //Makes a new string that takes input and replaces first char with the same char to uppercase
+
+        if(input2.length()<=3){ //If input is to short restarts funktion
+            System.out.println("Sorry! We dont have that genre..");
+            menu.searchgenre();
+            return "We dont have that";
+        }
 
         for (int i = 0; i <search.size() ; i++) {
 
@@ -70,6 +83,7 @@ public class MainMenu {
         }
 
         if(listing.size()<1){
+            menu.searchgenre();
             return "Sorry we dont have that";
         }
         System.out.println(listing);
