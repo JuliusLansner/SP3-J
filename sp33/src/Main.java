@@ -10,7 +10,7 @@ public class Main {
 
         MainMenu test1 = new MainMenu();
 
-        //System.out.println(test1.searchMovie());
+        System.out.println(test1.searchMovie());
         //System.out.println(test1.searchYear());
         //System.out.println(test1.searchgenre());
 
