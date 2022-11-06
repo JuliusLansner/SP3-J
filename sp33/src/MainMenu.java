@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MainMenu {
 
 
-    public String searchMovie() {
+    private String searchMovie() {
         JflixDB movies = new JflixDB();
 
         Scanner scan = new Scanner(System.in);
@@ -17,6 +17,7 @@ public class MainMenu {
 
         for (int i = 0; i < search.size(); i++) {
             if (search.get(i).name.equalsIgnoreCase(input)) {
+                System.out.println(search.get(i).toString());
                 return search.get(i).toString();
             }
 
@@ -26,7 +27,7 @@ public class MainMenu {
     }
 
 
-    public String searchYear() {
+    private String searchYear() {
         JflixDB movies = new JflixDB();
         ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
         ArrayList<Movie> listing = new ArrayList<>();
@@ -49,7 +50,7 @@ public class MainMenu {
         return "We have these movies for that year: "+listing;
     }
 
-    public String searchgenre() {
+    private String searchgenre() {
         JflixDB movies = new JflixDB();
         ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
         ArrayList<Movie> listing = new ArrayList<>();//An array to hold all the movies containing the genre in the input
@@ -75,6 +76,33 @@ public class MainMenu {
         return "We have these movies for that genre : "+listing;
     }
 
+    public String choice(){
+      Scanner scan = new Scanner(System.in);
+      MainMenu menu = new MainMenu();
+        System.out.println("To search for movie type 1: ");
+        System.out.println("To search sertain genre type 2: ");
+        System.out.println("To search sertain year type 3: ");
+      String input = scan.nextLine();
+
+
+      if(input.equals("1")){
+          menu.searchMovie();
+          return menu.searchMovie();
+      }
+
+      if(input.equals("2")){
+            menu.searchgenre();
+            return menu.searchgenre();
+      }
+
+      if(input.equals("3")){
+            menu.searchYear();
+            return menu.searchYear();
+      }
+
+      return null;
+
+    }
 
 
 
