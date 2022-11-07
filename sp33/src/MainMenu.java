@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MainMenu {
 
 
-    private String searchMovie() {
+    public String searchMovie() {
         MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
         Scanner scan = new Scanner(System.in);
@@ -17,13 +17,15 @@ public class MainMenu {
         for (int i = 0; i < search.size(); i++) {
             if (search.get(i).name.equalsIgnoreCase(input)) {
                 System.out.println(search.get(i).toString());
-                return search.get(i).toString();
+
+                String searchResult = search.get(i).toString();
+                return searchResult;
             }
 
         }
-        System.out.println("Sorry we dont have that");
+        System.out.println("Sorry we don't have that");
         menu.searchMovie();
-        return "Sorry we dont have that";
+        return "Sorry we don't have that";
     }
 
 
