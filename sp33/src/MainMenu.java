@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MainMenu {
 
 
-    public String searchMovie() {
+    private String searchMovie() {
         MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
         Scanner scan = new Scanner(System.in);
@@ -17,9 +17,8 @@ public class MainMenu {
         for (int i = 0; i < search.size(); i++) {
             if (search.get(i).name.equalsIgnoreCase(input)) {
                 System.out.println(search.get(i).toString());
-
-                String searchResult = search.get(i).toString();
-                return searchResult;
+                String searchResult = search.get(i).toString(); //Used in class: Choices
+                return search.get(i).toString();
             }
 
         }
@@ -96,8 +95,8 @@ public class MainMenu {
       Scanner scan = new Scanner(System.in);
       MainMenu menu = new MainMenu();
         System.out.println("To search for movie type 1: ");
-        System.out.println("To search sertain genre type 2: ");
-        System.out.println("To search sertain year type 3: ");
+        System.out.println("To search certain genre type 2: ");
+        System.out.println("To search certain year type 3: ");
       String input = scan.nextLine();
 
 
