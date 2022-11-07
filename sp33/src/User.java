@@ -6,40 +6,25 @@ public class User {
     String userName;
     String passWord;
 
-    public void userLogin(String userName, String passWord) {
-            this.userName = userName;
-            this.passWord = passWord;
-        }
+
 
     //---- getter, user login information ----
-    public String getUserName() {
-        userName = input.nextLine();
-        return userName;
+
+           public String getUsername() {
+            System.out.println("Username: ");
+            userName = input.nextLine();
+                return userName;
+            }
+
+         public String getPassword() {
+             System.out.println("Password: ");
+             passWord = input.nextLine();
+                return passWord;
     }
 
-    public String getPassWord() {
-        passWord = input.nextLine();
-        return passWord;
-    }
 
 
 
 
 
-
-
-    
-
-
-
-
-  /* If we want to be able to change username and password at a later time
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
-
-   */
 }

@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+StartMenu->
+MainMenu->
+
+User ->
+Userinfo->
+
+@enduml

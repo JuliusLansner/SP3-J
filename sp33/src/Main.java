@@ -1,8 +1,20 @@
 package sp33.src;
 
+
+
 public class Main {
+
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        StartMenu testSM = new StartMenu();
+
+        testSM.loginScreen();
+        UserDB test = new UserDB();
+
+
 
     }
+
+
 }
