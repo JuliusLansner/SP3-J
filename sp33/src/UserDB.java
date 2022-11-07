@@ -12,7 +12,8 @@ public class UserDB extends User {
 
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
-    //boolean loginSuccess = verifyUserLogin(userNameInput,passWordInput,filepath,",");
+
+    boolean loginSuccess = false;
 
    public  boolean verifyUserLogin(String username, String password, String filepath, String splitter){
     String currentLine;
@@ -29,13 +30,12 @@ public class UserDB extends User {
         // here, we check if the username and the password match ( userData[0] being username and [1] being password)
         // and they need to be on the same line of the text file. So if BOTH strings are true, then this if statement run.
         if(userData[0].equals(username) && userData[1].equals(password)){
-            System.out.println("Login successful...");
-            goToMainMenu.choice();
-            return true;
-        } else System.out.println("Wrong login, try again");
-        verifyUserLogin(String username, String password, String filepath, String splitter);
-            return false;
+            return loginSuccess = true;
+        } else
+        return loginSuccess = false;
     }
+
+
 
     }
     //catch, a failsafe.
@@ -45,7 +45,7 @@ public class UserDB extends User {
         return false;
    }
 // SIGNUP FUNCTION
-
+/*
 
         Scanner scanner = new Scanner(System.in);
 
@@ -75,7 +75,7 @@ public class UserDB extends User {
 
             scanner.close();
         }
-
+*/
 
 
     /*public ArrayList<String> getUsers() {

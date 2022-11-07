@@ -19,7 +19,16 @@ public class StartMenu extends UserDB{
 
    public void loginExistingUser() {
             verifyUserLogin(getUsername(), getPassword(), "Data/userDB.txt", ",");
-
+            loginCheck();
+    }
+    public void loginCheck(){
+        if (loginSuccess == true){
+            System.out.println("Login sucessful...");
+            goToMainMenu.choice();
+        } else if(loginSuccess == false){
+            System.out.println("Wrong info, try again..");
+            loginExistingUser();
+        }
     }
 }
 
