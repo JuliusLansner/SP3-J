@@ -49,7 +49,7 @@ public class UserDB extends User {
 
         File file = new File("data/watchList.txt");
         FileWriter fw = new FileWriter(file, true);
-        fw.write(userName+);
+        //fw.write(userName+);
 
 
 
@@ -57,88 +57,30 @@ public class UserDB extends User {
         return "nothing";
 
     }
-// SIGNUP FUNCTION
-/*
+    // SIGNUP FUNCTION
+    Scanner scanner = new Scanner(System.in);
+    public void signup() throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Write your username:");
 
+        BufferedWriter writer = new BufferedWriter(new FileWriter("data/userDB.txt",true));
 
-        public String Signup() throws IOException {
-            System.out.println("Write your username:");
+        String username = scanner.nextLine();
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter("data/userDB.txt",true));
+        System.out.println("Your new username is: " + username);
+        System.out.println("Create your password: ");
 
+        String password = scanner.nextLine();
 
-            String username = scanner.nextLine(); //Saves user input in variable "username"
+        BufferedWriter writer1 = new BufferedWriter(new FileWriter("data/userDB.txt", true));
+        writer1.write(String.valueOf(username + ","));
+        writer1.write(String.valueOf(password));
+        writer1.write("\n");
+        writer1.close();
 
-
-            writer.write(String.valueOf(username));
-            writer.close();
-
-            System.out.println("Your new username is: " + username);
-
-            System.out.println("Create your password: ");
-            String password = scanner.nextLine();
-
-            BufferedWriter writer1 = new BufferedWriter(new FileWriter("usernameTest.txt"));
-            writer1.write(String.valueOf(password));
-            writer1.close();
-
-            System.out.println("Your new password is:" + password);
-
-            scanner.close();
-        }
-*/
-
-
-    /*public ArrayList<String> getUsers() {
-
-        File file = new File("Data/userDB.txt");
-        ArrayList<String> userData = new ArrayList<>();
-        try {
-            Scanner input = new Scanner(file);
-            //pseudo kode
-            if(input.equals(loginInfo)){
-                System.out.println("it works XD");
-            } else System.out.println("no");
-        } catch (FileNotFoundException e) {
-            userData = null;
-        }
-
-        return userData;
-    }
-
-
-
-
-     public ArrayList<String> movieListCategorize(ArrayList<String> data) {
-        ArrayList<String> list = new ArrayList<>();
-
-        String[] values = new String[0];
-        for (int i = 0; i < data.size(); i++) {
-            String s = data.get(i);// puts strings from data into s
-
-            values = s.split(",");
-
-            //Gives a variable for each index
-            String name = values[1];
-            String year = values[2];
-            String genre = values[3];
-
-            //adds all the arrays to the arraylist list
-            list.add("\n" + name);
-            list.add(year);
-            list.add(genre);
-
-
-        }
-        //System.out.println(list);
-
-        return list;
+        System.out.println("Your new password is:" + password);
 
     }
-    */
-
 
 
 }
