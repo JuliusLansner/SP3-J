@@ -35,7 +35,6 @@ public class MainMenu {
         ArrayList<Movie> listing = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("What year would you like to search for?: ");
         String input = scan.nextLine();
         if(input.length()<4){
             System.out.println("Sorry! We dont have any movies for that year..");
@@ -66,7 +65,6 @@ public class MainMenu {
         ArrayList<Movie> listing = new ArrayList<>();//An array to hold all the movies containing the genre in the input
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("What genre do you want?: ");
         String input = (scan.nextLine());
 
 
@@ -124,7 +122,6 @@ public class MainMenu {
         ArrayList<Series> listing = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("What year would you like to search for?: ");
         String input = scan.nextLine();
         if(input.length()<4){
             System.out.println("Sorry! We dont have any movies for that year..");
@@ -154,7 +151,6 @@ public class MainMenu {
         ArrayList<Series> listing = new ArrayList<>();//An array to hold all the series containing the genre in the input
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("What genre do you want?: ");
         String input = (scan.nextLine());
 
 
@@ -205,13 +201,17 @@ if(input.equalsIgnoreCase("1")) { // if movie is chosen, you get these choices.
     }
 
     if (input2.equals("2")) {
-
-        return menu.searchgenre();
+        System.out.println("What genre do you want?: ");
+        menu.searchgenre();
+        System.out.println("Choose a movie from the list: ");
+        return menu.searchMovie();
     }
 
     if (input2.equals("3")) {
-
-        return menu.searchYear();
+        System.out.println("What year would you like to search for?: ");
+        menu.searchYear();
+        System.out.println("Pick a movie from the list: ");
+        return menu.searchMovie();
     }
 }
 
@@ -227,13 +227,20 @@ if(input.equalsIgnoreCase("2")){ //searches for series related stuff..
     }
 
     if (input3.equals("2")) {
+        Scanner choose = new Scanner(System.in);
+        System.out.println("What genre do you want?: ");
+        menu.searchSeriesGenre();
+        
 
-        return menu.searchSeriesGenre();
+        System.out.println("Pick a series from the list");
+        return menu.searchSeries();
     }
 
     if (input3.equals("3")) {
-
-        return menu.searchSeriesYear();
+        System.out.println("What year would you like to search for?: ");
+        menu.searchSeriesYear();
+        System.out.println("Pick a series from the list");
+        return menu.searchSeries();
     }
 }
         System.out.println("You have to type in one of the numbers '1' or '2': ");

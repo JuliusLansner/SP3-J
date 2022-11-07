@@ -11,7 +11,6 @@ public class Main {
         MainMenu test1 = new MainMenu();
         test1.choice();
 
-
     }
 
 
