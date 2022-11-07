@@ -1,0 +1,14 @@
+@startuml
+!pragma layout smetana
+autonumber
+StartMenu -> User: loginScreen()
+User --> StartMenu: Input
+alt
+else Login or create a new user
+group User action
+autonumber stop
+StartMenu -> MainMenu: loginExistingUser()
+StartMenu -> CreateNewUser: newUser()
+end
+else Another type of failure
+@enduml
