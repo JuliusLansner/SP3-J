@@ -13,15 +13,19 @@ public class UserDB extends User {
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
 
-    boolean loginSuccess = false;
+    boolean loginSuccess;
 
    public  boolean verifyUserLogin(String username, String password, String filepath, String splitter){
     String currentLine;
     String userData[];
     try{
-    FileReader DBReader = new FileReader(filepath);
-    BufferedReader br = new BufferedReader(DBReader);
-    //while loop storing next line to currentLine, if it's not equal to null. (not empty)
+    //FileReader DBReader = new FileReader(filepath);
+   // BufferedReader br = new BufferedReader(DBReader);
+
+        //just testing some code...
+        BufferedReader br = new BufferedReader(new FileReader("Data/userDB.txt"));
+
+        //while loop storing next line to currentLine, if it's not equal to null. (not empty)
         //if it's NOT equal to null, there's more data in the file we want to read
         //if its equal to null there's nothing more we need to read.
     while((currentLine = br.readLine()) !=null){
@@ -31,8 +35,7 @@ public class UserDB extends User {
         // and they need to be on the same line of the text file. So if BOTH strings are true, then this if statement run.
         if(userData[0].equals(username) && userData[1].equals(password)){
             return loginSuccess = true;
-        } else
-        return loginSuccess = false;
+        }
     }
 
 
@@ -42,12 +45,12 @@ public class UserDB extends User {
     catch (Exception e){
         System.out.println("it went wrong");
     }
-        return false;
+        return loginSuccess = false;
    }
 
     public String watchlist() throws IOException {
 
-        File file = new File("data/watchList.txt");
+        File file = new File("Data/watchList.txt");
         FileWriter fw = new FileWriter(file, true);
         //fw.write(userName+);
 
@@ -63,7 +66,7 @@ public class UserDB extends User {
 
         System.out.println("Write your username:");
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("data/userDB.txt",true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Data/userDB.txt",true));
 
         String username = scanner.nextLine();
 
@@ -72,11 +75,12 @@ public class UserDB extends User {
 
         String password = scanner.nextLine();
 
-        BufferedWriter writer1 = new BufferedWriter(new FileWriter("data/userDB.txt", true));
+        BufferedWriter writer1 = new BufferedWriter(new FileWriter("Data/userDB.txt", true));
         writer1.write(String.valueOf(username + ","));
         writer1.write(String.valueOf(password));
         writer1.write("\n");
         writer1.close();
+
 
         System.out.println("Your new password is:" + password);
 
