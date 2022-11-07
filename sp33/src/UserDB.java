@@ -44,6 +44,19 @@ public class UserDB extends User {
     }
         return false;
    }
+
+    public String watchlist() throws IOException {
+
+        File file = new File("data/watchList.txt");
+        FileWriter fw = new FileWriter(file, true);
+        fw.write(userName+);
+
+
+
+
+        return "nothing";
+
+    }
 // SIGNUP FUNCTION
 /*
 
