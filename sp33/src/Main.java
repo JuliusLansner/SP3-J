@@ -7,9 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        StartMenu testSM = new StartMenu();
 
-        MainMenu test1 = new MainMenu();
-        test1.choice();
+        testSM.loginScreen();
+        UserDB test = new UserDB();
 
 
 

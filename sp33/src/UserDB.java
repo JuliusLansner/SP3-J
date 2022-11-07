@@ -1,9 +1,7 @@
 package sp33.src;
 
 
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,7 +11,7 @@ public class UserDB extends User {
 
 
     String filepath = "Data/userDB.txt";
-
+    MainMenu goToMainMenu = new MainMenu();
     //boolean loginSuccess = verifyUserLogin(userNameInput,passWordInput,filepath,",");
 
    public  boolean verifyUserLogin(String username, String password, String filepath, String splitter){
@@ -32,8 +30,11 @@ public class UserDB extends User {
         // and they need to be on the same line of the text file. So if BOTH strings are true, then this if statement run.
         if(userData[0].equals(username) && userData[1].equals(password)){
             System.out.println("Login successful...");
+            goToMainMenu.choice();
             return true;
-        }
+        } else System.out.println("Wrong login, try again");
+        verifyUserLogin(String username, String password, String filepath, String splitter);
+            return false;
     }
 
     }
@@ -43,7 +44,37 @@ public class UserDB extends User {
     }
         return false;
    }
+// SIGNUP FUNCTION
 
+
+        Scanner scanner = new Scanner(System.in);
+
+
+        public String Signup() throws IOException {
+            System.out.println("Write your username:");
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter("data/userDB.txt",true));
+
+
+            String username = scanner.nextLine(); //Saves user input in variable "username"
+
+
+            writer.write(String.valueOf(username));
+            writer.close();
+
+            System.out.println("Your new username is: " + username);
+
+            System.out.println("Create your password: ");
+            String password = scanner.nextLine();
+
+            BufferedWriter writer1 = new BufferedWriter(new FileWriter("usernameTest.txt"));
+            writer1.write(String.valueOf(password));
+            writer1.close();
+
+            System.out.println("Your new password is:" + password);
+
+            scanner.close();
+        }
 
 
 

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class StartMenu extends UserDB{
 
     private final Scanner scanner = new Scanner(System.in);
-
+    MainMenu goToMainMenu = new MainMenu();
     public void loginScreen() {
         System.out.println("Welcome to Jflix");
         System.out.println("Please choose an existing user, or create a new one");
@@ -19,6 +19,7 @@ public class StartMenu extends UserDB{
 
    public void loginExistingUser() {
             verifyUserLogin(getUsername(), getPassword(), "Data/userDB.txt", ",");
+
     }
 }
 
