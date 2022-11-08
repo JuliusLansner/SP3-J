@@ -1,16 +1,18 @@
 package sp33.src;
 
 
+import java.io.IOException;
 import java.io.Writer;
 
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+        StartMenu start = new StartMenu();
+        start.loginScreen();
 
 
-        MainMenu test1 = new MainMenu();
-        test1.choice();
 
     }
 

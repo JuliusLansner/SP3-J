@@ -40,22 +40,12 @@ public class StartMenu extends UserDB{
     public void signupuser()throws IOException {
         signup();
 
-        //just testing some code
-            //BufferedReader bufferedReader = new BufferedReader(new FileReader("\"Data/userDB.txt\""));
-           // String s;
-            //s = bufferedReader.readLine();
-            //bufferedReader.close();
-
-
         System.out.println("Signed up, going to the login screen");
         loginScreen();
     }
 }
 
 
-/* what have I changed
-1. all filepath should be the same. "D" and not "d".
-2. Added a reader to signupuser to maybe help with update issues.
-*/
+
 
 

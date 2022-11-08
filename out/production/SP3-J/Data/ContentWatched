@@ -1,0 +1,19 @@
+username,name of content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            Notes:
+            To print "Watched Content", loop file: ContentWatched.
+            Check if username is equal to the username that is logged in with. Print those lines.
