@@ -209,8 +209,8 @@ if(input.equalsIgnoreCase("1")) { // if movie is chosen, you get these choices.
 
 if(input.equalsIgnoreCase("2")){ //searches for series related stuff..
     System.out.println("To search for series, type 1: ");
-    System.out.println("To search sertain genre, type 2: ");
-    System.out.println("To search sertain year, type 3: ");
+    System.out.println("To search certain genre, type 2: ");
+    System.out.println("To search certain year, type 3: ");
     String input3 = scan.nextLine();
 
     if (input3.equals("1")) {
