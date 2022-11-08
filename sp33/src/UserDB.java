@@ -2,6 +2,7 @@ package sp33.src;
 
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserDB extends User {
@@ -11,15 +12,20 @@ public class UserDB extends User {
 
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
-    //boolean loginSuccess = verifyUserLogin(userNameInput,passWordInput,filepath,",");
+
+    boolean loginSuccess;
 
    public  boolean verifyUserLogin(String username, String password, String filepath, String splitter){
     String currentLine;
     String userData[];
     try{
-    FileReader DBReader = new FileReader(filepath);
-    BufferedReader br = new BufferedReader(DBReader);
-    //while loop storing next line to currentLine, if it's not equal to null. (not empty)
+    //FileReader DBReader = new FileReader(filepath);
+   // BufferedReader br = new BufferedReader(DBReader);
+
+        //just testing some code...
+        BufferedReader br = new BufferedReader(new FileReader("Data/userDB.txt"));
+
+        //while loop storing next line to currentLine, if it's not equal to null. (not empty)
         //if it's NOT equal to null, there's more data in the file we want to read
         //if its equal to null there's nothing more we need to read.
     while((currentLine = br.readLine()) !=null){
@@ -28,96 +34,57 @@ public class UserDB extends User {
         // here, we check if the username and the password match ( userData[0] being username and [1] being password)
         // and they need to be on the same line of the text file. So if BOTH strings are true, then this if statement run.
         if(userData[0].equals(username) && userData[1].equals(password)){
-            System.out.println("Login successful...");
-            goToMainMenu.choice();
-            return true;
-        } else System.out.println("Wrong login, try again");
-        //verifyUserLogin(String username, String password, String filepath, String splitter);
-            return false;
+            return loginSuccess = true;
+        }
     }
+
+
 
     }
     //catch, a failsafe.
     catch (Exception e){
         System.out.println("it went wrong");
     }
-        return false;
+        return loginSuccess = false;
    }
-// SIGNUP FUNCTION
-        Scanner scanner = new Scanner(System.in);
-        public void signup() throws IOException {
 
-            System.out.println("Write your username:");
+    public String watchlist() throws IOException {
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter("data/userDB.txt",true));
-
-            String username = scanner.nextLine();
-
-            System.out.println("Your new username is: " + username);
-            System.out.println("Create your password: ");
-
-            String password = scanner.nextLine();
-
-            BufferedWriter writer1 = new BufferedWriter(new FileWriter("data/userDB.txt", true));
-            writer1.write(String.valueOf(username + ","));
-            writer1.write(String.valueOf(password));
-            writer1.write("\n");
-            writer1.close();
-
-            System.out.println("Your new password is:" + password);
-            scanner.close();
-        }
-
-
-
-    /*public ArrayList<String> getUsers() {
-
-        File file = new File("Data/userDB.txt");
-        ArrayList<String> userData = new ArrayList<>();
-        try {
-            Scanner input = new Scanner(file);
-            //pseudo kode
-            if(input.equals(loginInfo)){
-                System.out.println("it works XD");
-            } else System.out.println("no");
-        } catch (FileNotFoundException e) {
-            userData = null;
-        }
-
-        return userData;
-    }
+        File file = new File("Data/watchList.txt");
+        FileWriter fw = new FileWriter(file, true);
+        //fw.write(userName+);
 
 
 
 
-     public ArrayList<String> movieListCategorize(ArrayList<String> data) {
-        ArrayList<String> list = new ArrayList<>();
-
-        String[] values = new String[0];
-        for (int i = 0; i < data.size(); i++) {
-            String s = data.get(i);// puts strings from data into s
-
-            values = s.split(",");
-
-            //Gives a variable for each index
-            String name = values[1];
-            String year = values[2];
-            String genre = values[3];
-
-            //adds all the arrays to the arraylist list
-            list.add("\n" + name);
-            list.add(year);
-            list.add(genre);
-
-
-        }
-        //System.out.println(list);
-
-        return list;
+        return "nothing";
 
     }
-    */
+    // SIGNUP FUNCTION
+    Scanner scanner = new Scanner(System.in);
+    public void signup() throws IOException {
 
+        System.out.println("Write your username:");
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Data/userDB.txt",true));
+
+        String username = scanner.nextLine();
+
+        System.out.println("Your new username is: " + username);
+        System.out.println("Create your password: ");
+
+        String password = scanner.nextLine();
+
+        BufferedWriter writer1 = new BufferedWriter(new FileWriter("Data/userDB.txt", true));
+        writer1.write(String.valueOf(username + ","));
+        writer1.write(String.valueOf(password));
+        writer1.write("\n");
+        writer1.close();
+
+
+        System.out.println("Your new password is:" + password);
+
+    }
 
 
 }

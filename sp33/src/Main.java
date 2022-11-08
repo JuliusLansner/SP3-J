@@ -11,7 +11,7 @@ public class Main {
         StartMenu testSM = new StartMenu();
 
         testSM.loginScreen();
-        UserDB test = new UserDB();
+
 
         test.signup();
 
