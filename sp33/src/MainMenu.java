@@ -36,9 +36,10 @@ public class MainMenu {
 
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
+
         if(input.length()<4){
             System.out.println("Sorry! We dont have any movies for that year..");
-            menu.searchYear();
+           return menu.searchYear();
         }
 
         for (int i = 0; i <search.size() ; i++) {
@@ -48,11 +49,7 @@ public class MainMenu {
 
         }
 
-        if(listing.size()<1){
-            System.out.println("Sorry we dont have any movies from that year");
-            menu.searchYear();
-            return null;
-        }
+
         System.out.println("We have these movies for that year: ");
         System.out.println(listing);
         return ""+listing;
@@ -72,8 +69,8 @@ public class MainMenu {
 
         if(input2.length()<=3){ //If input is to short restarts funktion
             System.out.println("Sorry! We dont have that genre..");
-            menu.searchgenre();
-            return null;
+
+            return menu.searchgenre();
         }
 
         for (int i = 0; i <search.size() ; i++) {
@@ -85,8 +82,8 @@ public class MainMenu {
         }
 
         if(listing.size()<1){
-            menu.searchgenre();
-            return null;
+
+            return menu.searchgenre();
         }
         System.out.println(listing);
         return "We have these movies for that genre : "+listing;
@@ -110,8 +107,8 @@ public class MainMenu {
         }
         System.out.println("Sorry we dont have that");
         System.out.println("Try to search again: ");
-        menu.searchSeries();
-        return null;
+
+        return menu.searchSeries();
     }
 
 
@@ -137,8 +134,8 @@ public class MainMenu {
 
         if(listing.size()<1){
             System.out.println("Sorry we dont have any series from that year");
-            menu.searchSeriesYear();
-            return  null;
+
+            return  menu.searchSeriesYear();
         }
         System.out.println(listing);
         return "We have these movies for that year: "+listing;
@@ -158,8 +155,7 @@ public class MainMenu {
 
         if(input2.length()<=3){ //If input is to short restarts funktion
             System.out.println("Sorry! We dont have that genre..");
-            menu.searchgenre();
-            return null;
+            return menu.searchgenre();
         }
 
         for (int i = 0; i <search.size() ; i++) {
@@ -170,10 +166,6 @@ public class MainMenu {
 
         }
 
-        if(listing.size()<1){
-            menu.searchgenre();
-            return "Sorry we dont have that";
-        }
         System.out.println(listing);
         return "We have these movies for that genre : "+listing;
     }
@@ -230,7 +222,7 @@ if(input.equalsIgnoreCase("2")){ //searches for series related stuff..
         Scanner choose = new Scanner(System.in);
         System.out.println("What genre do you want?: ");
         menu.searchSeriesGenre();
-        
+
 
         System.out.println("Pick a series from the list");
         return menu.searchSeries();
