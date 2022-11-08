@@ -13,7 +13,7 @@ public class Main {
         testSM.loginScreen();
 
 
-        test.signup();
+        //test.signup();
 
     }
 
