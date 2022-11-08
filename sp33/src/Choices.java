@@ -6,17 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Choices {
-    String SearchResult = null;
     String filepath = "Data/ContentWatched.txt";
 
     public void playFunction() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("data/ContentWatched.txt", true));
 
-        writer.write(SearchResult);
-
+        writer.write(searchResult);
 
         writer.close();
-        System.out.println("You are now playing " + SearchResult);
+        System.out.println("You are now playing " + searchResult);
     }
 
             //TO DO:
@@ -39,14 +37,14 @@ public class Choices {
 
         //add to watchLater list
 
-        System.out.println(SearchResult +" has been added to your personal list");
+        System.out.println(searchResult +" has been added to your personal list");
     }
 
     public void deleteContentFromList() {
 
         //remove from watchLater list
 
-        System.out.println(SearchResult +" has successfully been removed from your personal list");
+        System.out.println(searchResult +" has successfully been removed from your personal list");
     }
 
 }
