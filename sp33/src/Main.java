@@ -12,8 +12,6 @@ public class Main {
         testSM.loginScreen();
         UserDB test = new UserDB();
 
-
-
     }
 
 
