@@ -5,16 +5,20 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Choices {
+public class Choices extends MainMenu {
     String filepath = "Data/ContentWatched.txt";
 
     public void playFunction() throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("data/ContentWatched.txt", true));
 
-        writer.write(searchResult);
+        MainMenu mainmenu = new MainMenu();
+        //String movie = choice;
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
+
+        writer.write(choice());
 
         writer.close();
-        System.out.println("You are now playing " + searchResult);
+       // System.out.println("You are now playing " + );
     }
 
             //TO DO:
@@ -32,7 +36,7 @@ public class Choices {
 
 
 
-
+/*
     public void watchLater() {
 
         //add to watchLater list
@@ -46,5 +50,5 @@ public class Choices {
 
         System.out.println(searchResult +" has successfully been removed from your personal list");
     }
-
+*/
 }
