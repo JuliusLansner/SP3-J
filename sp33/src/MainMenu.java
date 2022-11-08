@@ -12,12 +12,12 @@ public class MainMenu {
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
+        String searchResult;
 
 
         for (int i = 0; i < search.size(); i++) {
             if (search.get(i).name.equalsIgnoreCase(input)) {
                 System.out.println(search.get(i).toString());
-                String searchResult = search.get(i).toString(); //Used in class: Choices
                 return search.get(i).toString();
             }
 
