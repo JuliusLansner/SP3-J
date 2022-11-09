@@ -13,11 +13,11 @@ Scanner scan = new Scanner(System.in);
 MainMenu mainmenu = new MainMenu();
    String play = test.choice();// kører choice funktionen
 
-System.out.println("press 1 to play a movie");
+System.out.println("press 1 to play the movie");
 String input = scan.nextLine();
 BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 
-if(input.equals("1") && checkWatchList(userName +" "+ play) == true) {
+if(input.equals("1") && checkWatchList(userName +" "+ play) == false) {
     writer.write("\n"+userName +" "+ play);
     writer.close();
 }else{
