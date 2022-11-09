@@ -28,6 +28,19 @@ public class Choices extends MainMenu {
             //Check if username is equal to the username that is logged in with. Print those lines.
 
 
+    //login->
+    //mainmenu->
+    //searchmovie->
+    //*find movie* ->
+    //"titanic"->
+    //cFunc():
+    //
+    //if 1 : play, {}
+    //
+    //
+    //if 2:
+    //choice() in list show: delete from list{2 to del}
+    //else  save, {2 to save}
 
 
 
