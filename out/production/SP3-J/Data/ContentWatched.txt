@@ -1,10 +1,4 @@
-hey
-Gladiator Action, Adventure, Drama 2000 8,5
-The Godfather Crime, Drama 1972 9,2
-ymer
-The Godfather Crime, Drama 1972 9,2
-Raiders Of The Lost Ark Action, Adventure 1981 8,5
-julius The Godfather Crime, Drama 1972 9,2
-nullThe Godfather Crime, Drama 1972 9,2
-
+Username Titel Genre Year Rating
+null Psycho Horror, Mystery, Thriller 1960 8,5
 null The Godfather Crime, Drama 1972 9,2
+null The Wizard Of Oz Adventure, Family, Fantasy 1939 8,0

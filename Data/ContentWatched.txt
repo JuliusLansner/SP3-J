@@ -1,0 +1,4 @@
+Username Titel Genre Year Rating
+null Psycho Horror, Mystery, Thriller 1960 8,5
+null The Godfather Crime, Drama 1972 9,2
+null The Wizard Of Oz Adventure, Family, Fantasy 1939 8,0
