@@ -14,13 +14,13 @@ public class Main {
 
         Choices test1 = new Choices();
         //test1.choiceFunction();
-        //StartMenu test2 = new StartMenu();
-        //test2.loginScreen();
 
-        test1.checkWatchList("ss");
+        StartMenu test2 = new StartMenu();
+        test2.loginScreen();
 
-
-
+        //Til at checke hvordan watchlist ser ud
+        //JflixDB checklist = new JflixDB();
+        //System.out.println(checklist.getWatchList());
 
 
     }
