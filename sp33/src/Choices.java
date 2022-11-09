@@ -34,7 +34,7 @@ public boolean checkWatchList(String input){
      throw new RuntimeException(e);
  }
     String text = scanner.nextLine();
- if(input.equalsIgnoreCase(input)){
+ if(text.equalsIgnoreCase(input)){
      return false;
  }
  return true;
