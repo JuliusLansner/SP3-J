@@ -6,25 +6,26 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Choices extends MainMenu {
+public class Choices extends UserDB {
     String filepath = "Data/ContentWatched.txt";
-
+MainMenu test = new MainMenu();
+    saveMenu save = new saveMenu();
     public void choiceFunction() throws IOException {
 Scanner scan = new Scanner(System.in);
 MainMenu mainmenu = new MainMenu();
+   String play = test.choice();// kører choice funktionen
 
-String play = choice();// kører choice funktionen
 System.out.println("press 1 to play a movie");
 String input = scan.nextLine();
 BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 
 if(input.equals("1")) {
-    writer.write("\n" + play);
+    writer.write("\n"+userName +" "+ play);
     writer.close();
 }
 
-    }
 
+    }
 
 
 

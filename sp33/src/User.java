@@ -1,7 +1,7 @@
 package sp33.src;
 import java.util.Scanner;
 
-public class User extends MainMenu{
+public class User{
     Scanner input = new Scanner(System.in);
     String userName;
     String passWord;
