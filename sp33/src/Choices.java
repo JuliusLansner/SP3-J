@@ -8,61 +8,26 @@ import java.util.Scanner;
 
 public class Choices extends MainMenu {
     String filepath = "Data/ContentWatched.txt";
-    Scanner scan = new Scanner(System.in);
 
     public void choiceFunction() throws IOException {
+Scanner scan = new Scanner(System.in);
+MainMenu mainmenu = new MainMenu();
 
-        MainMenu mainmenu = new MainMenu();
-        //String movie = choice;
-        String input = scan.nextLine();
+String play = choice();// kører choice funktionen
+System.out.println("press 1 to play a movie");
+String input = scan.nextLine();
+BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 
-
-
-        if(input==("1")){
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
-            writer.write(choice());
-
-        }
-
-        //System.out.println("press 1 to play");
-
-
-       // writer.close();
-
-
-
-
-       // System.out.println("You are now playing " + );
-    }
-
-    public void playFunction(){
-
-    }
-    public String saveDelete() throws IOException{
-return "";
+if(input.equals("1")) {
+    writer.write("\n" + play);
+    writer.close();
+}
 
     }
 
-            //TO DO:
-            //if 'SearchResult' is not already in the list, add to list
-
-            //for later: to print "Watched Content", loop file: ContentWatched.
-            //Check if username is equal to the username that is logged in with. Print those lines.
 
 
-    //login->
-    //mainmenu->
-    //searchmovie->
-    //*find movie* ->
-    //"titanic"->
-    //cFunc():
-    //
-    //if 1 : play, {}
-    //
-    //
-    //if 2:
-    //choice() in list show: delete from list{2 to del}
-    //else  save, {2 to save}
+
 
 
 
