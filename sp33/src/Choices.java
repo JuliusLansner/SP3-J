@@ -4,21 +4,43 @@ import javax.naming.directory.SearchResult;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Choices extends MainMenu {
     String filepath = "Data/ContentWatched.txt";
+    Scanner scan = new Scanner(System.in);
 
     public void choiceFunction() throws IOException {
 
         MainMenu mainmenu = new MainMenu();
         //String movie = choice;
+        String input = scan.nextLine();
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 
-        writer.write(choice());
 
-        writer.close();
+        if(input==("1")){
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
+            writer.write(choice());
+
+        }
+
+        //System.out.println("press 1 to play");
+
+
+       // writer.close();
+
+
+
+
        // System.out.println("You are now playing " + );
+    }
+
+    public void playFunction(){
+
+    }
+    public String saveDelete() throws IOException{
+return "";
+
     }
 
             //TO DO:

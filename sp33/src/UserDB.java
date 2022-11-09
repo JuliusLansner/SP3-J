@@ -48,16 +48,18 @@ public class UserDB extends User {
         return loginSuccess = false;
    }
 
-    public String watchlist() throws IOException {
+    public void saveContent() throws IOException {
 
-        File file = new File("Data/SavedContent.txt");
-        FileWriter fw = new FileWriter(file, true);
-        //fw.write(userName+);
+        //File file = new File("Data/SavedContent.txt");
+        //FileWriter fw = new FileWriter(file, true);
+        //fw.write(userName+choice());
 
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Data/SavedContent.txt", true));
 
+        writer.write(userName+choice()+"\n");
 
+        writer.close();
 
-        return "nothing";
 
     }
     // SIGNUP FUNCTION
