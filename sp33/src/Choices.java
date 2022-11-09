@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Choices extends MainMenu {
     String filepath = "Data/ContentWatched.txt";
 
-    public void playFunction() throws IOException {
+    public void choiceFunction() throws IOException {
 
         MainMenu mainmenu = new MainMenu();
         //String movie = choice;

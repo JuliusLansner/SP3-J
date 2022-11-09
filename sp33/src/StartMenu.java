@@ -7,6 +7,7 @@ public class StartMenu extends UserDB{
 
     private final Scanner scanner = new Scanner(System.in);
     MainMenu goToMainMenu = new MainMenu();
+    Choices gotoChoice = new Choices();
     public void loginScreen() throws IOException {
         System.out.println("Welcome to Jflix");
         System.out.println("Please choose an existing user, or create a new one");
@@ -23,14 +24,15 @@ public class StartMenu extends UserDB{
         }
     }
 
-   public void loginExistingUser() {
+   public void loginExistingUser() throws IOException {
             verifyUserLogin(getUsername(), getPassword(), "Data/userDB.txt", ",");
             loginCheck();
     }
-    public void loginCheck(){
+    public void loginCheck() throws IOException {
         if (loginSuccess == true){
             System.out.println("Login sucessful...");
-            goToMainMenu.choice();
+            gotoChoice.choiceFunction();
+            //goToMainMenu.choice();
         } else if(loginSuccess == false){
             System.out.println("Wrong info, try again..");
             loginExistingUser();

@@ -50,7 +50,7 @@ public class UserDB extends User {
 
     public String watchlist() throws IOException {
 
-        File file = new File("Data/watchList.txt");
+        File file = new File("Data/SavedContent.txt");
         FileWriter fw = new FileWriter(file, true);
         //fw.write(userName+);
 
