@@ -122,5 +122,27 @@ public class JflixDB {
 
     }
 
+    public ArrayList<String> getWatchList(){
+        ArrayList<String>linesToCheck = new ArrayList<>();
+
+        try {
+
+            Scanner scan = new Scanner(new File("data/ContentWatched.txt"));
+            String str = scan.nextLine();
+
+            while(scan.hasNextLine()){
+                linesToCheck.add(scan.nextLine());
+            }
+
+
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
+        }
+
+
+
+        return linesToCheck;
+    }
+
 
 }

@@ -2,6 +2,7 @@ package sp33.src;
 
 import javax.naming.directory.SearchResult;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Choices extends UserDB {
@@ -25,21 +26,16 @@ if(input.equals("1") && checkWatchList(userName +" "+ play) == true) {
 }
     }
 
-public boolean checkWatchList(String input){
- File file = new File("data/ContentWatched.txt");
-
- try {
-     Scanner read = new Scanner(file);
- } catch (FileNotFoundException e) {
-     throw new RuntimeException(e);
+public boolean checkWatchList(String input) {
+JflixDB lineArray = new JflixDB();
+lineArray.getWatchList();
+    for (int i = 0; i <lineArray.getWatchList().size() ; i++) {
+        if(lineArray.getWatchList().get(i).equalsIgnoreCase(input)){
+            System.out.println("true");
+            return true;
+        }
+    }
+    System.out.println("false");
+    return false;
  }
-    String text = scanner.nextLine();
- if(text.equalsIgnoreCase(input)){
-     return false;
- }
- return true;
-}
-
-
-
 }
