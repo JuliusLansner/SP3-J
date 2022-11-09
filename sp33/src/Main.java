@@ -9,8 +9,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        StartMenu start = new StartMenu();
-        start.loginScreen();
+        //StartMenu start = new StartMenu();
+        //start.loginScreen();
+
+        Choices test1 = new Choices();
+        test1.playFunction();
 
 
 
