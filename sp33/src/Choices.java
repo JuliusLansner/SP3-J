@@ -1,9 +1,7 @@
 package sp33.src;
 
 import javax.naming.directory.SearchResult;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Choices extends UserDB {
@@ -19,37 +17,29 @@ System.out.println("press 1 to play a movie");
 String input = scan.nextLine();
 BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 
-if(input.equals("1")) {
+if(input.equals("1") && checkWatchList(userName +" "+ play) == true) {
     writer.write("\n"+userName +" "+ play);
     writer.close();
+}else{
+    System.out.println("You already watched this");
+}
+    }
+
+public boolean checkWatchList(String input){
+ File file = new File("data/ContentWatched.txt");
+
+ try {
+     Scanner read = new Scanner(file);
+ } catch (FileNotFoundException e) {
+     throw new RuntimeException(e);
+ }
+    String text = scanner.nextLine();
+ if(input.equalsIgnoreCase(input)){
+     return false;
+ }
+ return true;
 }
 
 
-    }
 
-
-
-
-
-
-
-
-
-
-
-/*
-    public void watchLater() {
-
-        //add to watchLater list
-
-        System.out.println(searchResult +" has been added to your personal list");
-    }
-
-    public void deleteContentFromList() {
-
-        //remove from watchLater list
-
-        System.out.println(searchResult +" has successfully been removed from your personal list");
-    }
-*/
 }
