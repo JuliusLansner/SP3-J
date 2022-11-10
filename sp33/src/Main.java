@@ -1,22 +1,30 @@
 package sp33.src;
 
-import java.util.ArrayList;
+
+import java.io.IOException;
+import java.io.Writer;
 
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+        //StartMenu start = new StartMenu();
+        //start.loginScreen();
 
-        MainMenu test1 = new MainMenu();
+        //Choices test1 = new Choices();
+        //test1.choiceFunction();
 
-        System.out.println(test1.searchMovie());
-        //System.out.println(test1.searchYear());
-        //System.out.println(test1.searchgenre());
+        StartMenu test2 = new StartMenu();
+        test2.loginScreen();
 
+        //Til at checke hvordan watchlist ser ud
+        //JflixDB checklist = new JflixDB();
+        //System.out.println(checklist.getWatchList());
 
 
     }
+
 
 
 }
