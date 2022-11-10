@@ -17,6 +17,7 @@ public class Choices extends UserDB {
 
         System.out.println("press 1 to play");
         System.out.println("press 2 to save");
+        System.out.println("press 3 to delete something");
         String input = scan.nextLine();
 //en writer til content watched filem
         BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
@@ -24,18 +25,18 @@ public class Choices extends UserDB {
         BufferedWriter writer2 = new BufferedWriter(new FileWriter("Data/SavedContent.txt", true));
 
 //Hvis man vælger play
-        if (input.equals("1") && checkWatchList(username + " " + play) == false) {
-            writer.write("\n" + username + " " + play);
+        if (input.equals("1") && checkWatchList(userName + " " + play) == false) {
+            writer.write("\n" + userName + " " + play);
             writer.close();
-        } else if (input.equals("1") && checkWatchList(username + " " + play) == true) {
+        } else if (input.equals("1") && checkWatchList(userName + " " + play) == true) {
             System.out.println("You already watched this");
         }
 
 //Hvis man vælger savecontent
-        if (input.equals("2") && checkSavedContentList(username + " " + play) == false) {
-            writer2.write("\n" + username + " " + play);
+        if (input.equals("2") && checkSavedContentList(userName + " " + play) == false) {
+            writer2.write("\n" + userName + " " + play);
             writer2.close();
-        } else if (input.equals("2") && checkSavedContentList(username + " " + play) == true) {
+        } else if (input.equals("2") && checkSavedContentList(userName + " " + play) == true) {
             System.out.println("You already watched this");
         }
 
