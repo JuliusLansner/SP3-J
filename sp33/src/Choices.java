@@ -42,7 +42,7 @@ public class Choices extends UserDB {
         }
 
         if(input.equals("3")){
-            removeRecord("SavedContent.txt","");
+            removeRecord("SavedContent.txt");
         }
 
     }
@@ -79,8 +79,8 @@ public class Choices extends UserDB {
          Scanner scanner;
 
 
-        public void removeRecord(String filepath, String removeTerm){
-
+        public void removeRecord(String filepath){
+            String user = getUsername();
             System.out.println("Please type the title of the content you wish to remove from your list: ");
 
             Scanner getInput = new Scanner(System.in);
@@ -122,7 +122,7 @@ public class Choices extends UserDB {
                     rating3 = scanner.next();
 
                     if (!title.equalsIgnoreCase(id)) {
-                        pw.println(title + "," + year + "," + genre + "," + rating + "," + rating1 + "," + rating2 + "," + rating3); //lappe løsning
+                        pw.println(user + "," + year + "," + genre + "," + rating + "," + rating1 + "," + rating2 + "," + rating3); //lappe løsning
                     }
                 }
                 scanner.close();//changed from old scanner to new scanner
