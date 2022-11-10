@@ -82,7 +82,7 @@ public class MainMenu {
         }
 
         if(listing.size()<1){
-
+            System.out.println("Try again");
             return menu.searchgenre();
         }
         System.out.println(listing);

@@ -9,15 +9,14 @@ public class UserDB extends User {
     //take info from user signup
     //get username and password, save in a text file
 
-
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
 
     boolean loginSuccess;
 
    public  boolean verifyUserLogin(String username, String password, String filepath, String splitter){
-    String currentLine;
-    String userData[];
+       String userData[];
+       String currentLine;
     try{
     //FileReader DBReader = new FileReader(filepath);
    // BufferedReader br = new BufferedReader(DBReader);
