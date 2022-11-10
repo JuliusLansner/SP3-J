@@ -23,7 +23,7 @@ public class Choices extends UserDB {
         BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 //en writer til savedcontent filen
         BufferedWriter writer2 = new BufferedWriter(new FileWriter("Data/SavedContent.txt", true));
-        System.out.println("What user you wanna save for?: ");
+        System.out.println("What user you want to save for?: ");
         String user = getUsername();
 //Hvis man vælger play
         if (input.equals("1") && checkWatchList(user + " " + play) == false) {
