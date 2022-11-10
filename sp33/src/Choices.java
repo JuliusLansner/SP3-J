@@ -49,7 +49,7 @@ lineArray.getWatchList();
             return true;
         }
     }
-    
+
     return false;
  }
 
