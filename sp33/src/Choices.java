@@ -13,6 +13,8 @@ public class Choices extends UserDB {
     public void choiceFunction() throws IOException {
         Scanner scan = new Scanner(System.in);
         MainMenu mainmenu = new MainMenu();
+        System.out.println("What user you want to use: ");
+        String user = getUsername();
         String play = test.choice();// kører choice funktionen
 
         System.out.println("press 1 to play");
@@ -23,8 +25,6 @@ public class Choices extends UserDB {
         BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 //en writer til savedcontent filen
         BufferedWriter writer2 = new BufferedWriter(new FileWriter("Data/SavedContent.txt", true));
-        System.out.println("What user you want to save for?: ");
-        String user = getUsername();
 //Hvis man vælger play
         if (input.equals("1") && checkWatchList(user + " " + play) == false) {
             writer.write("\n" + user + " " + play);
@@ -121,7 +121,7 @@ public class Choices extends UserDB {
                     rating2 = scanner.next();
                     rating3 = scanner.next();
 
-                    if (!title.equals(id)) {
+                    if (!title.equalsIgnoreCase(id)) {
                         pw.println(title + "," + year + "," + genre + "," + rating + "," + rating1 + "," + rating2 + "," + rating3); //lappe løsning
                     }
                 }
