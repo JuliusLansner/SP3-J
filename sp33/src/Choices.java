@@ -30,7 +30,7 @@ public class Choices extends UserDB {
             writer.write("\n" + user + " " + play);
             writer.close();
         } else if (input.equals("1") && checkWatchList(user + " " + play) == true) {
-            System.out.println("You already watched this");
+            System.out.println("already watched this");
         }
 
 //Hvis man vælger savecontent
@@ -38,7 +38,7 @@ public class Choices extends UserDB {
             writer2.write("\n" + user + " " + play);
             writer2.close();
         } else if (input.equals("2") && checkSavedContentList(user + " " + play) == true) {
-            System.out.println("You already watched this");
+            System.out.println("already watched this");
         }
 
         if(input.equals("3")){
