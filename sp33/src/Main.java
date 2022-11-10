@@ -12,7 +12,7 @@ public class Main {
         //StartMenu start = new StartMenu();
         //start.loginScreen();
 
-        //Choices test1 = new Choices();
+        Choices test1 = new Choices();
         //test1.choiceFunction();
 
         StartMenu test2 = new StartMenu();
@@ -21,6 +21,8 @@ public class Main {
         //Til at checke hvordan watchlist ser ud
         //JflixDB checklist = new JflixDB();
         //System.out.println(checklist.getWatchList());
+
+
 
 
     }
