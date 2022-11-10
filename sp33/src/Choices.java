@@ -23,20 +23,21 @@ public class Choices extends UserDB {
         BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 //en writer til savedcontent filen
         BufferedWriter writer2 = new BufferedWriter(new FileWriter("Data/SavedContent.txt", true));
-
+        System.out.println("What user you wanna save for?: ");
+        String user = getUsername();
 //Hvis man vælger play
-        if (input.equals("1") && checkWatchList(userName + " " + play) == false) {
-            writer.write("\n" + userName + " " + play);
+        if (input.equals("1") && checkWatchList(user + " " + play) == false) {
+            writer.write("\n" + user + " " + play);
             writer.close();
-        } else if (input.equals("1") && checkWatchList(userName + " " + play) == true) {
+        } else if (input.equals("1") && checkWatchList(user + " " + play) == true) {
             System.out.println("You already watched this");
         }
 
 //Hvis man vælger savecontent
-        if (input.equals("2") && checkSavedContentList(userName + " " + play) == false) {
-            writer2.write("\n" + userName + " " + play);
+        if (input.equals("2") && checkSavedContentList(user + " " + play) == false) {
+            writer2.write("\n" + user + " " + play);
             writer2.close();
-        } else if (input.equals("2") && checkSavedContentList(userName + " " + play) == true) {
+        } else if (input.equals("2") && checkSavedContentList(user + " " + play) == true) {
             System.out.println("You already watched this");
         }
 
