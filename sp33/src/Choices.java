@@ -54,6 +54,7 @@ lineArray.getWatchList();
     return false;
  }
 
+<<<<<<< Updated upstream
     public boolean checkSavedContentList(String input) {
         JflixDB lineArray = new JflixDB();
         lineArray.getSavedContentList();
@@ -65,5 +66,72 @@ lineArray.getWatchList();
         }
 
         return false;
+=======
+
+    //Delete from watch later list. Should be working.
+    private static Scanner scanner;
+
+    public static void main(String[] args) {
+        removeRecord("SavedContent.txt","");
+    }
+    public static void removeRecord(String filepath, String removeTerm){
+
+        System.out.println("Please type the title of the content you wish to remove from your list: ");
+
+        Scanner getInput = new Scanner(System.in);
+        String id = getInput.nextLine();
+
+        String tempFile = "temp.txt";
+        //creating file objects
+        File oldFile = new File(filepath);
+        File newFile = new File(tempFile);
+
+        String title;
+        String year;
+        String genre;
+        String rating;
+        String rating1;
+        String rating2;
+        String rating3;
+
+        try {
+            //write to tempFile using data from movielist
+            FileWriter fw = new FileWriter(tempFile,true);
+            //interact with FileWriter
+            BufferedWriter bw = new BufferedWriter(fw);
+            //take in what BufferedWriter has
+            PrintWriter pw = new PrintWriter(bw);
+
+            //read from the file
+            scanner = new Scanner(new File(filepath));
+            //each movie is seperated by , or new line
+            scanner.useDelimiter("[,;\n]"); //removed ,
+            
+            while (scanner.hasNext()){//changed from old scanner to new scanner
+                title = scanner.next();//changed from old scanner to new scanner
+                year = scanner.next();
+                genre = scanner.next();
+                rating = scanner.next();
+                rating1 = scanner.next();
+                rating2 = scanner.next();
+                rating3 = scanner.next();
+
+                if (!title.equals(id)){
+                    pw.println(title + "," + year + "," + genre + "," + rating+ "," + rating1 + "," + rating2 + "," + rating3); //lappe løsning
+                }
+            }
+            scanner.close();//changed from old scanner to new scanner
+            pw.flush();
+            pw.close();
+            oldFile.delete();
+            File dump = new File(filepath);
+            newFile.renameTo(dump);
+
+            System.out.println("you have now removed: " + id);
+
+        }catch (Exception e){
+            System.out.println("something went wrong");
+        }
+>>>>>>> Stashed changes
     }
 }
