@@ -1,4 +1,1 @@
-Username Titel Genre Year Rating
-
-
-mikkel The Godfather Crime, Drama 1972 9,2
+Name ,Year, Genre, rating

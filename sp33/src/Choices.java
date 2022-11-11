@@ -38,11 +38,11 @@ public class Choices extends UserDB {
             writer2.write("\n" + user + " " + play);
             writer2.close();
         } else if (input.equals("2") && checkSavedContentList(user + " " + play) == true) {
-            System.out.println("already watched this");
+            System.out.println("already saved this");
         }
 
         if(input.equals("3")){
-            removeRecord("SavedContent.txt");
+            removeRecord("Data/SavedContent.txt");
         }
 
     }
@@ -75,60 +75,57 @@ public class Choices extends UserDB {
         return false;
 
     }
-        //Delete from watch later list. Should be working.
-         Scanner scanner;
-
-
+        Scanner scanner;
         public void removeRecord(String filepath){
+
+            System.out.println("To confirm write your username: ");
             String user = getUsername();
+
             System.out.println("Please type the title of the content you wish to remove from your list: ");
+            System.out.println("Please note that the input is case sensitive. Write the title exactly as it is stored.");
+            System.out.println("If you wish to delete all of your saved content, type your username.");
 
             Scanner getInput = new Scanner(System.in);
             String id = getInput.nextLine();
 
-            String tempFile = "temp.txt";
+            String tempFile = "Data/temp.txt";
             //creating file objects
             File oldFile = new File(filepath);
             File newFile = new File(tempFile);
 
             String title;
-            String year;
             String genre;
+            String year;
             String rating;
-            String rating1;
-            String rating2;
-            String rating3;
 
+            //reading and writing to the files
             try {
-                //write to tempFile using data from movielist
+                //write to tempFile
                 FileWriter fw = new FileWriter(tempFile, true);
                 //interact with FileWriter
                 BufferedWriter bw = new BufferedWriter(fw);
                 //take in what BufferedWriter has
                 PrintWriter pw = new PrintWriter(bw);
 
-                //read from the file
+                //reads from the file
                 scanner = new Scanner(new File(filepath));
-                //each movie is seperated by , or new line
-                scanner.useDelimiter("[,;\n]"); //removed ,
+                scanner.useDelimiter("[,\n]");
 
-                while (scanner.hasNext()) {//changed from old scanner to new scanner
-                    title = scanner.next();//changed from old scanner to new scanner
-                    year = scanner.next();
+                //go through the loop until there are no more lines to read
+                while (scanner.hasNext()) {
+                    title = scanner.next();
                     genre = scanner.next();
+                    year = scanner.next();
                     rating = scanner.next();
-                    rating1 = scanner.next();
-                    rating2 = scanner.next();
-                    rating3 = scanner.next();
-
-                    if (!title.equalsIgnoreCase(id)) {
-                        pw.println(user + "," + year + "," + genre + "," + rating + "," + rating1 + "," + rating2 + "," + rating3); //lappe løsning
+                    //If !input add line to temp.txt
+                    if (!title.contains(id)) {
+                        pw.println(title+","+genre+","+year+","+rating);
                     }
                 }
-                scanner.close();//changed from old scanner to new scanner
+                scanner.close();
                 pw.flush();
-                pw.close();
-                oldFile.delete();
+                pw.close(); //no more writing to file
+                oldFile.delete(); //deletes the old file
                 File dump = new File(filepath);
                 newFile.renameTo(dump);
 
@@ -137,7 +134,5 @@ public class Choices extends UserDB {
             } catch (Exception e) {
                 System.out.println("something went wrong");
             }
-
         }
-
 }
