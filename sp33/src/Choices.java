@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Choices extends UserDB {
     String filepath = "Data/ContentWatched.txt";
     MainMenu test = new MainMenu();
-    saveMenu save = new saveMenu();
+
 
     public void choiceFunction() throws IOException {
         Scanner scan = new Scanner(System.in);
