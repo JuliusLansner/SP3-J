@@ -8,4 +8,12 @@ public class Profiles {
         this.passWord=passWord;
 
     }
+
+    @Override
+    public String toString() {
+        return "Profiles{" +
+                "userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                '}';
+    }
 }

@@ -19,10 +19,13 @@ public class Main {
        testU.verifyUserLogin(username,pass,"userDB.txt",",");
         System.out.println(currentUser);
 */
-        UserDB signup = new UserDB();
+        //UserDB signup = new UserDB();
 
-        signup.signup();
+        //signup.signup();
 
+        User user = new User();
+        user.getLogin();
+        System.out.println(user.loginListCat(user.login));
 
 
         //StartMenu start = new StartMenu();

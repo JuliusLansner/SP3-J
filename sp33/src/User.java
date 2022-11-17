@@ -15,14 +15,19 @@ ArrayList<Profiles> loginSplit = new ArrayList<>();
 
     //---- getter, user login information ----
 
-   /* public String getUsername() {
+    public String getUsername() {
+        Scanner input = new Scanner(System.in);
+        userName = input.nextLine();
         return userName;
     }
 
     public String getPassword() {
+        Scanner input = new Scanner(System.in);
+        passWord = input.nextLine();
         return passWord;
     }
-*/
+
+
 
 
 
