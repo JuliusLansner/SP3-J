@@ -25,7 +25,7 @@ public class JflixDB2 {
 
 
 
-    public ArrayList<Movie> MakeResultSetList(){
+    public ArrayList<Movie> MakeResultSetMovieList(){
         connect();
         Statement statement;
 

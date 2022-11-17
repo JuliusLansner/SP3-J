@@ -44,11 +44,11 @@ public class Main {
         //JflixDB test = new JflixDB();
         //System.out.println(test.movieListCategorize(test.getMovies()));
 
-        //Choices run = new Choices();
+        Choices run = new Choices();
         //run.choiceFunction();
 
         JflixDB2 test1 = new JflixDB2();
-        System.out.println(test1.MakeResultSetList());
+        System.out.println(test1.MakeResultSetMovieList());
 
     }
 
