@@ -17,12 +17,14 @@ ArrayList<Profiles> loginSplit = new ArrayList<>();
 
     public String getUsername() {
         Scanner input = new Scanner(System.in);
+        System.out.println("Type your username:");
         userName = input.nextLine();
         return userName;
     }
 
     public String getPassword() {
         Scanner input = new Scanner(System.in);
+        System.out.println("Type your password");
         passWord = input.nextLine();
         return passWord;
     }
@@ -56,7 +58,6 @@ ArrayList<Profiles> loginSplit = new ArrayList<>();
 
     public ArrayList<Profiles> loginListCat(ArrayList<String> data) {
 
-
         String[] values = new String[0];
         for (int i = 0; i < data.size(); i++) {
             String s = data.get(i);// puts strings from data into s
@@ -75,6 +76,10 @@ ArrayList<Profiles> loginSplit = new ArrayList<>();
 
         }
         return loginSplit;
+    }
+
+    public ArrayList<Profiles> profilesArray(){
+        return this.loginSplit;
     }
 
 }

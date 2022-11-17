@@ -2,6 +2,7 @@ package sp33.src;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class StartMenu extends UserDB{
 
@@ -25,7 +26,8 @@ public class StartMenu extends UserDB{
     }
 
    public void loginExistingUser() throws IOException {
-            verifyUserLogin(getUsername(), getPassword(), "Data/userDB.txt", ",");
+        User user = new User();
+            verifyUserLogin(user.getUsername(), user.getPassword());
             loginCheck();
     }
     public void loginCheck() throws IOException {

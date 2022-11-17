@@ -11,10 +11,14 @@ public class Choices extends UserDB {
 
 
     public void choiceFunction() throws IOException {
+        User user1 = new User();
+        user1.profilesArray();
+
+
         Scanner scan = new Scanner(System.in);
         MainMenu mainmenu = new MainMenu();
         System.out.println("What user you want to use: ");
-        String user = getUsername();
+        String user = user1.getUsername();
         String play = test.choice();// kører choice funktionen
 
         System.out.println("press 1 to play");
@@ -77,9 +81,9 @@ public class Choices extends UserDB {
     }
         Scanner scanner;
         public void removeRecord(String filepath){
-
+            User user1 = new User();
             System.out.println("To confirm write your username: ");
-            String user = getUsername();
+            String user = user1.getUsername();
 
             System.out.println("Please type the title of the content you wish to remove from your list: ");
             System.out.println("Please note that the input is case sensitive. Write the title exactly as it is stored.");

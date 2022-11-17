@@ -1,3 +1,4 @@
+Navn, password
 julius,lmao
 malde,lmao
 seb,lmao
