@@ -3,6 +3,7 @@ package sp33.src;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Scanner;
 
 public class Main {
 
@@ -10,10 +11,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         JflixDB movieArray = new JflixDB();
 
-        movieArray.loadFiles();
-        System.out.println(movieArray.movieList);
-        System.out.println("\n");
-        System.out.println(movieArray.seriesList);
+      /* UserDB testU = new UserDB();
+       Scanner scan = new Scanner(System.in);
+        String username = scan.nextLine();
+        String pass = scan.nextLine();
+        String currentUser = username+", "+pass;
+       testU.verifyUserLogin(username,pass,"userDB.txt",",");
+        System.out.println(currentUser);
+*/
+        UserDB signup = new UserDB();
+
+        signup.signup();
 
 
 

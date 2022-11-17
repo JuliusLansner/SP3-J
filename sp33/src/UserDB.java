@@ -11,11 +11,11 @@ public class UserDB extends User {
 
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
-
+    String userData[];
     boolean loginSuccess;
 
    public  boolean verifyUserLogin(String username, String password, String filepath, String splitter){
-       String userData[];
+
        String currentLine;
     try{
     //FileReader DBReader = new FileReader(filepath);
@@ -65,7 +65,7 @@ public class UserDB extends User {
 
         BufferedWriter writer1 = new BufferedWriter(new FileWriter("Data/userDB.txt", true));
         writer1.write(String.valueOf(username + ","));
-        writer1.write(String.valueOf(password));
+        writer1.write(String.valueOf(password+";"));
         writer1.write("\n");
         writer1.close();
 
