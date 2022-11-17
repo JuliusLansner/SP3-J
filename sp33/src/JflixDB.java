@@ -13,7 +13,7 @@ public class JflixDB {
     //seperating movies into objects
     ArrayList<Movie> movieList = new ArrayList<>();
 
-    ArrayList<String>seriesList= new ArrayList<>();
+    ArrayList<Series>seriesList= new ArrayList<>();
 
     public void loadFiles(){
         getMovies();
@@ -121,9 +121,9 @@ public class JflixDB {
 
 
 
-            Series Series1 = new Series(name,year,genre,rating,episodes);
+            Series series1 = new Series(name,year,genre,rating,episodes);
             //adds all the data on those values to the arraylist
-            seriesList.add(Series1);
+            seriesList.add(series1);
 
 
 
