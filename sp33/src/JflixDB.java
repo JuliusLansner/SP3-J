@@ -7,14 +7,26 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JflixDB {
+    // movie array
+    ArrayList<String>movies = new ArrayList<>();
+    ArrayList<String>series = new ArrayList<>();
+    //seperating movies into objects
+    ArrayList<Movie> movieList = new ArrayList<>();
 
-    public JflixDB(){
+    ArrayList<String>seriesList= new ArrayList<>();
 
+    public void loadFiles(){
+        getMovies();
+        getSeries();
+        seriesListCategorize(series);
+        movieListCategorize(movies);
     }
 
+
     public ArrayList<String> getMovies(){
-        ArrayList<String>movies = new ArrayList<>();
-        String movie;
+       // ArrayList<String>movies = new ArrayList<>();
+        //not used anywhere
+        //String movie;
         try {
 
             Scanner scan = new Scanner(new File("data/Movies.txt"));
@@ -38,7 +50,7 @@ public class JflixDB {
 
 
     public ArrayList<Movie> movieListCategorize(ArrayList<String> data) {
-        ArrayList<Movie> list = new ArrayList<>();
+
 
         String[] values = new String[0];
         for (int i = 0; i < data.size(); i++) {
@@ -55,19 +67,19 @@ public class JflixDB {
 
             Movie movies1 = new Movie(name,genre,year,rating);
             //adds all the data on those values to the arraylist
-            list.add(movies1);
+            movieList.add(movies1);
 
 
 
         }
 
 
-        return list;
+        return movieList;
 
     }
 
     public ArrayList<String> getSeries(){
-        ArrayList<String>series = new ArrayList<>();
+
 
         try {
 
@@ -92,7 +104,7 @@ public class JflixDB {
 
 
     public ArrayList<Series> seriesListCategorize(ArrayList<String> data) {
-        ArrayList<Series> list = new ArrayList<>();
+
 
         String[] values = new String[0];
         for (int i = 0; i < data.size(); i++) {
@@ -111,14 +123,14 @@ public class JflixDB {
 
             Series Series1 = new Series(name,year,genre,rating,episodes);
             //adds all the data on those values to the arraylist
-            list.add(Series1);
+            seriesList.add(Series1);
 
 
 
         }
 
 
-        return list;
+        return seriesList;
 
     }
 

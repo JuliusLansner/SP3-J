@@ -1,11 +1,14 @@
 @startuml
 
-class JflixControl
+class Main
 
 class StartMenu
 
-StartMenu : + userLogin()
-StartMenu : + userSignup()
+StartMenu : + loginScreen()
+StartMenu : + loginExistingUser()
+StartMenu : + loginCheck()
+StartMenu : + signupuser();
+
 
 class MainMenu
 MainMenu : +search()
@@ -13,59 +16,64 @@ MainMenu : +SearchCategory()
 MainMenu : +contentWatched()
 MainMenu : +watchList()
 
-class Userinfo
-Userinfo : +userFileIo()
+class UserDB
+UserDB : +VerifyUserLogin
+UserDB : +signup()
+
+
 
 
 class User
-User : -passWord
-User : -userName
-User : etc
+User : +getpassWord
+User : +getuserName
 
-class Database
-Database : +FileIo()
+
+class JflixDB
+JflixDB : +getMovies()
+JflixDB : +movieListCategorize()
+JflixDB : +getSeries()
+JflixDB : +seriesListCategorize()
+JflixDB : +getWatchList()
+JflixDB : +getSavedContentlist()
+
 
 class Choices
-Choices : +play()
-Choices : +watchLater()
-Choices : +deleteContentFromList()
+Choices : +choiceFunction()
+Choices : +checkWatchList()
+Choices : +checkSavedContentList()
+Choices : +removeRecord()
+
 
 class Movie
 Movie : +name
 Movie : +year
 Movie : +rating
-Movie : etc
-
-class movieScanner
-movieScanner : +categorize()
-
-class seriesScanner
-seriesScanner : +categorize()
+Movie : +toString()
 
 class series
 series : +name
 series : +year
 series : +rating
-series : etc
+series : +toString()
 
-interface playable
 
-movieScanner *-- Database
-seriesScanner *-- Database
-Movie *-- movieScanner
-series *-- seriesScanner
 
-StartMenu *-- MainMenu
-JflixControl *-- StartMenu
-MainMenu *-- Database
-Database *-- Choices
 
-User *--* Userinfo
+series *--* JflixDB
+Movie *--* JflixDB
 
-StartMenu *--* Userinfo
 
-playable *-- Movie
-playable *-- series
+StartMenu --* Choices
+Main *-- StartMenu
+MainMenu *-- JflixDB
+MainMenu *-- Choices
+
+StartMenu *-- UserDB
+User --*UserDB
+
+
+
+
 
 
 
