@@ -13,13 +13,31 @@ public class Choices extends UserDB {
     public void choiceFunction() throws IOException {
         User user1 = new User();
         user1.profilesArray();
-
+        String name ="";
 
         Scanner scan = new Scanner(System.in);
         MainMenu mainmenu = new MainMenu();
-        System.out.println("What user you want to use: ");
-        String user = user1.getUsername();
-        String play = test.choice();// kører choice funktionen
+        StartMenu login = new StartMenu();
+
+        System.out.println("Welcome to Jflix");
+        System.out.println("Please choose an existing user, or create a new one");
+        System.out.println("Login to user 1: Press 1");
+        System.out.println("Create a new user: Press 2");
+        System.out.println("Enter your choice: ");
+        Scanner scanner = new Scanner(System.in);
+        String answer = scanner.nextLine();
+        if (answer.contains("1")) {
+            name = login.loginExistingUser();
+
+        }
+        if(answer.contains("2")){
+            login.signupuser();
+        }
+
+
+       String play = mainmenu.choice();
+
+
 
         System.out.println("press 1 to play");
         System.out.println("press 2 to save");
@@ -30,18 +48,18 @@ public class Choices extends UserDB {
 //en writer til savedcontent filen
         BufferedWriter writer2 = new BufferedWriter(new FileWriter("Data/SavedContent.txt", true));
 //Hvis man vælger play
-        if (input.equals("1") && checkWatchList(user + " " + play) == false) {
-            writer.write("\n" + user + " " + play);
+        if (input.equals("1") && checkWatchList(name + " " + play) == false) {
+            writer.write("\n" + name + " " + play);
             writer.close();
-        } else if (input.equals("1") && checkWatchList(user + " " + play) == true) {
+        } else if (input.equals("1") && checkWatchList(name + " " + play) == true) {
             System.out.println("already watched this");
         }
 
 //Hvis man vælger savecontent
-        if (input.equals("2") && checkSavedContentList(user + " " + play) == false) {
-            writer2.write("\n" + user + " " + play);
+        if (input.equals("2") && checkSavedContentList(name + " " + play) == false) {
+            writer2.write("\n" + name + " " + play);
             writer2.close();
-        } else if (input.equals("2") && checkSavedContentList(user + " " + play) == true) {
+        } else if (input.equals("2") && checkSavedContentList(name + " " + play) == true) {
             System.out.println("already saved this");
         }
 

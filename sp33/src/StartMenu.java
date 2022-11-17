@@ -25,15 +25,15 @@ public class StartMenu extends UserDB{
         }
     }
 
-   public void loginExistingUser() throws IOException {
+   public String loginExistingUser() throws IOException {
         User user = new User();
-            verifyUserLogin(user.getUsername(), user.getPassword());
+            String name = verifyUserLogin(user.getUsername(), user.getPassword());
             loginCheck();
+            return name;
     }
     public void loginCheck() throws IOException {
         if (loginSuccess == true){
             System.out.println("Login sucessful...");
-            gotoChoice.choiceFunction();
             //goToMainMenu.choice();
         } else if(loginSuccess == false){
             System.out.println("Wrong info, try again..");

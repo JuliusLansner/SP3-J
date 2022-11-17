@@ -34,8 +34,8 @@ public class Main {
         //Choices test1 = new Choices();
         //test1.choiceFunction();
 
-       StartMenu test2 = new StartMenu();
-       test2.loginScreen();
+       //StartMenu test2 = new StartMenu();
+       //test2.loginScreen();
 
         //Til at checke hvordan watchlist ser ud
         //JflixDB checklist = new JflixDB();
@@ -44,6 +44,8 @@ public class Main {
         //JflixDB test = new JflixDB();
         //System.out.println(test.movieListCategorize(test.getMovies()));
 
+        Choices run = new Choices();
+        run.choiceFunction();
 
     }
 
