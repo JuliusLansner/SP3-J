@@ -1,7 +1,7 @@
 package sp33.src;
 
 
-public class Movie {
+public class Movie implements NonInteractiveFiction {
     String name;
     String genre;
     String year;

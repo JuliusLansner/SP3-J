@@ -13,12 +13,13 @@ public class JflixDB2 {
     private String password = "63185276Ma";
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
     String query = "SELECT * FROM movies";
-    ArrayList<Movie> movies = new ArrayList<>(); // Arrayliste til at holde alle Movie objecter.
+    String query2 = "SELECT * FROM series";
+    ArrayList<NonInteractiveFiction> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie objecter.
 
 
     public void connect(){ //Laver forbindelse til databaseserveren.
         try {
-            this.connection = DriverManager.getConnection(url,username,password); //Driver manager finder serveren objectet connection skal connectes til.
+            this.connection = DriverManager.getConnection(url,username,password); //Driver manager finder server objectet connection skal connectes til.
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -26,16 +27,22 @@ public class JflixDB2 {
 
 
 
-    public ArrayList<Movie> MakeResultSetMovieList(){
+    public ArrayList<NonInteractiveFiction> MakeResultSetMovieList(){
         connect();//Laver forbindelse til server.
-        Statement statement;// Laver object af statement klassen som kan tage imod sql statements.
-
+        Statement statementMovie;// Laver object af statement klassen som kan tage imod sql statements.
+        Statement statementSeries;
         try {
-            statement = this.connection.createStatement(); //Siger hvilken forbindelse der skal laves et statement til.
+            statementMovie = this.connection.createStatement(); //Siger hvilken forbindelse der skal laves et statement til.
 
-            statement.getResultSet();//Laver holder til mit statement.
-            statement.execute(query);//executer mit sql statement som får alle film fra databasen.
-            ResultSet set = statement.getResultSet();//Laver et resultset som holder alle filmene.
+            statementMovie.getResultSet();//Laver holder til mit statement.
+            statementMovie.execute(query);//executer mit sql statement som får alle film fra databasen.
+            ResultSet set = statementMovie.getResultSet();//Laver et resultset som holder alle filmene.
+
+            statementSeries = this.connection.createStatement();
+
+            statementSeries.getResultSet();
+            statementSeries.execute(query2);
+            ResultSet set2 = statementSeries.getResultSet();
 
             while(set.next()){
                 String movieN = set.getString("movie_title");
@@ -43,14 +50,25 @@ public class JflixDB2 {
                 String genre = set.getString("movie_category");
                 String rating = set.getString("movie_rating");
                 Movie movie = new Movie(movieN,year,genre,rating);
-                movies.add(movie);
+                collection.add(movie);
+            }
+
+            while(set2.next()){
+              String seriesN = set2.getString("series_title");
+              String year = set2.getString("series_year");
+              String genre = set2.getString("series_category");
+              String rating = set2.getString("series_rating");
+              String episodes = set2.getString("series_seasons");
+              Series series = new Series(seriesN,year,genre,rating,episodes);
+              collection.add(series);
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
 
-        return movies;
+        return collection;
 
     }
 }

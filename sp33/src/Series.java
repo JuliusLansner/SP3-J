@@ -1,6 +1,6 @@
 package sp33.src;
 
-public class Series {
+public class Series implements NonInteractiveFiction {
     String name;
     String genre;
     String year;
