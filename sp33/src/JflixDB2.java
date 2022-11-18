@@ -7,17 +7,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JflixDB2 {
-    Connection connection;
+
+    Connection connection; //Laver et object at connection.
     private String username = "root";
     private String password = "63185276Ma";
-    String url = "jdbc:mysql://localhost:3306/testdrivem?" + "autoReconnect=true&useSSL=false";
+    String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
     String query = "SELECT * FROM movies";
-    ArrayList<Movie> movies = new ArrayList<>();
+    ArrayList<Movie> movies = new ArrayList<>(); // Arrayliste til at holde alle Movie objecter.
 
 
-    public void connect(){
+    public void connect(){ //Laver forbindelse til databaseserveren.
         try {
-            this.connection = DriverManager.getConnection(url,username,password);
+            this.connection = DriverManager.getConnection(url,username,password); //Driver manager finder serveren objectet connection skal connectes til.
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -26,20 +27,21 @@ public class JflixDB2 {
 
 
     public ArrayList<Movie> MakeResultSetMovieList(){
-        connect();
-        Statement statement;
+        connect();//Laver forbindelse til server.
+        Statement statement;// Laver object af statement klassen som kan tage imod sql statements.
 
         try {
-            statement = this.connection.createStatement();
-            statement.getResultSet();
-            statement.execute(query);
-            ResultSet set = statement.getResultSet();
+            statement = this.connection.createStatement(); //Siger hvilken forbindelse der skal laves et statement til.
+
+            statement.getResultSet();//Laver holder til mit statement.
+            statement.execute(query);//executer mit sql statement som får alle film fra databasen.
+            ResultSet set = statement.getResultSet();//Laver et resultset som holder alle filmene.
 
             while(set.next()){
-                String movieN = set.getString("Movie_Name");
-                String year = set.getString("Movie_Year");
-                String genre = set.getString("Movie_Genre");
-                String rating = set.getString("Movie_Rating");
+                String movieN = set.getString("movie_title");
+                String year = set.getString("movie_year");
+                String genre = set.getString("movie_category");
+                String rating = set.getString("movie_rating");
                 Movie movie = new Movie(movieN,year,genre,rating);
                 movies.add(movie);
             }
