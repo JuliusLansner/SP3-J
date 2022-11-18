@@ -1,10 +1,7 @@
 package sp33.src;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class JflixDB2 {
 
@@ -14,7 +11,7 @@ public class JflixDB2 {
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
     String query = "SELECT * FROM movies";
     String query2 = "SELECT * FROM series";
-    ArrayList<NonInteractiveFiction> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie objecter.
+    ArrayList<Movie> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie og serie objecter.
 
 
     public void connect(){ //Laver forbindelse til databaseserveren.
@@ -27,7 +24,7 @@ public class JflixDB2 {
 
 
 
-    public ArrayList<NonInteractiveFiction> MakeResultSetMovieList(){
+    public ArrayList<Movie> MakeResultSetMovieList(){
         connect();//Laver forbindelse til server.
         Statement statementMovie;// Laver object af statement klassen som kan tage imod sql statements.
         Statement statementSeries;
@@ -49,11 +46,11 @@ public class JflixDB2 {
                 String year = set.getString("movie_year");
                 String genre = set.getString("movie_category");
                 String rating = set.getString("movie_rating");
-                Movie movie = new Movie(movieN,year,genre,rating);
+                Movie movie = new Movie(movieN,genre,year,rating);
                 collection.add(movie);
             }
 
-            while(set2.next()){
+            /*while(set2.next()){
               String seriesN = set2.getString("series_title");
               String year = set2.getString("series_year");
               String genre = set2.getString("series_category");
@@ -62,7 +59,7 @@ public class JflixDB2 {
               Series series = new Series(seriesN,year,genre,rating,episodes);
               collection.add(series);
 
-            }
+            }*/
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

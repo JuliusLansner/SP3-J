@@ -17,7 +17,7 @@ public class Main {
         //run.choiceFunction();
 
         JflixDB2 test1 = new JflixDB2();
-        System.out.println(test1.MakeResultSetMovieList());
+        System.out.println(test1.MakeResultSetMovieList().get(3).rating);
 
     }
 
