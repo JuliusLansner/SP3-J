@@ -58,7 +58,8 @@ public class MainMenu {
     private String searchgenre() {
         MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
-        ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
+        JflixDB2 movies2 = new JflixDB2();
+        ArrayList<Movie> search = movies.movieListCategorize(movies2.MakeResultSetMovieList());
         ArrayList<Movie> listing = new ArrayList<>();//An array to hold all the movies containing the genre in the input
 
         Scanner scan = new Scanner(System.in);

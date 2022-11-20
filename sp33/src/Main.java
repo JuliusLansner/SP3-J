@@ -11,13 +11,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
         JflixDB movieArray = new JflixDB();
 
-        
+
 
         Choices run = new Choices();
-        //run.choiceFunction();
+        run.choiceFunction();
 
         JflixDB2 test1 = new JflixDB2();
-        System.out.println(test1.MakeResultSetMovieList().get(3).rating);
+        //System.out.println(test1.MakeResultSetMovieList());
+
 
     }
 
