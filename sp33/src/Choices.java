@@ -2,6 +2,7 @@ package sp33.src;
 
 import javax.naming.directory.SearchResult;
 import java.io.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class Choices extends UserDB {
     MainMenu test = new MainMenu();
 
 
-    public void choiceFunction() throws IOException {
+    public void choiceFunction() throws IOException, SQLException {
         User user1 = new User();
         user1.profilesArray();
         String name ="";

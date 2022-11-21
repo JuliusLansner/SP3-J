@@ -1,19 +1,19 @@
 package sp33.src;
 
 public class Profiles {
-    String userName;
-    String passWord;
-    public Profiles(String userName, String passWord){
-        this.userName=userName;
-        this.passWord=passWord;
+    String puserName;
+    String ppassWord;
+    public Profiles(String puserName, String ppassWord){
+        this.puserName = puserName;
+        this.ppassWord = ppassWord;
 
     }
 
     @Override
     public String toString() {
         return "Profiles{" +
-                "userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
+                "userName='" + puserName + '\'' +
+                ", passWord='" + ppassWord + '\'' +
                 '}';
     }
 }
