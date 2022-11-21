@@ -40,9 +40,9 @@ public class JflixDB2 {
 
             while(set.next()){
                 String movieN = set.getString("movie_title")+";";
-                String year = set.getString("movie_year")+" "+";";
-                String genre = set.getString("movie_category").replace(";",",")+" "+";"+" ";
-                String rating = set.getString("movie_rating")+";";
+                String year = set.getString("movie_year")+";";
+                String genre = set.getString("movie_category")+";";
+                String rating = set.getString("movie_raing")+";";
                collection.add(movieN+year+genre+rating);
             }
 
@@ -75,9 +75,9 @@ public class JflixDB2 {
             while(set2.next()){
                 String seriesN = set2.getString("series_title")+";";
                 String year = set2.getString("series_year")+";"+" ";
-                String genre = set2.getString("series_category").replace(";",",")+" "+";"+" ";
+                String genre = set2.getString("series_category")+";";
                 String rating = set2.getString("series_rating")+";";
-                String episodes = set2.getString("series_seasons").replace(";",",")+";";
+                String episodes = set2.getString("series_seasons")+";";
 
                 collection.add(seriesN+year+genre+rating+episodes);
 

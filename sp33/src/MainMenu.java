@@ -7,11 +7,12 @@ public class MainMenu {
 
 //Search for movie related stuff
     private String searchMovie() {
-        MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
+        JflixDB2 movies2 = new JflixDB2();
+
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
-        ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
+        ArrayList<Movie> search = movies.movieListCategorize(movies2.MakeResultSetMovieList());
 
 
         for (int i = 0; i < search.size(); i++) {
@@ -23,15 +24,15 @@ public class MainMenu {
         }
         System.out.println("Sorry we dont have that");
         System.out.println("Try to search again: ");
-        menu.searchMovie();
+        searchMovie();
         return null;
     }
 
 
     private String searchYear() {
-        MainMenu menu = new MainMenu();
         JflixDB movies = new JflixDB();
-        ArrayList<Movie> search = movies.movieListCategorize(movies.getMovies());
+        JflixDB2 movies2 = new JflixDB2();
+        ArrayList<Movie> search = movies.movieListCategorize(movies2.MakeResultSetMovieList());
         ArrayList<Movie> listing = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
@@ -39,7 +40,7 @@ public class MainMenu {
 
         if(input.length()<4){
             System.out.println("Sorry! We dont have any movies for that year..");
-           return menu.searchYear();
+           return searchYear();
         }
 
         for (int i = 0; i <search.size() ; i++) {
@@ -92,11 +93,11 @@ public class MainMenu {
 
     //Search for series related stuff
     private String searchSeries() {
-        MainMenu menu = new MainMenu();
         JflixDB series = new JflixDB();
+        JflixDB2 series2 = new JflixDB2();
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
-        ArrayList<Series> search = series.seriesListCategorize(series.getSeries());
+        ArrayList<Series> search = series.seriesListCategorize(series2.MakeResultSetSeriesList());
 
 
         for (int i = 0; i < search.size(); i++) {
@@ -109,21 +110,21 @@ public class MainMenu {
         System.out.println("Sorry we dont have that");
         System.out.println("Try to search again: ");
 
-        return menu.searchSeries();
+        return searchSeries();
     }
 
 
     private String searchSeriesYear() {
-        MainMenu menu = new MainMenu();
         JflixDB series = new JflixDB();
-        ArrayList<Series> search = series.seriesListCategorize(series.getSeries());
+        JflixDB2 series2 = new JflixDB2();
+        ArrayList<Series> search = series.seriesListCategorize(series2.MakeResultSetSeriesList());
         ArrayList<Series> listing = new ArrayList<>();
 
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
         if(input.length()<4){
             System.out.println("Sorry! We dont have any movies for that year..");
-            menu.searchSeriesYear();
+            searchSeriesYear();
         }
 
         for (int i = 0; i <search.size() ; i++) {
@@ -136,16 +137,16 @@ public class MainMenu {
         if(listing.size()<1){
             System.out.println("Sorry we dont have any series from that year");
 
-            return  menu.searchSeriesYear();
+            return  searchSeriesYear();
         }
         System.out.println(listing);
         return "We have these movies for that year: "+listing;
     }
 
     private String searchSeriesGenre() {
-        MainMenu menu = new MainMenu();
-        JflixDB series = new JflixDB();
-        ArrayList<Series> search = series.seriesListCategorize(series.getSeries());
+        JflixDB series = new JflixDB(); // Her bruges txt filer.
+        JflixDB2 series2 = new JflixDB2();// Her bruges database.
+        ArrayList<Series> search = series.seriesListCategorize(series2.MakeResultSetSeriesList());
         ArrayList<Series> listing = new ArrayList<>();//An array to hold all the series containing the genre in the input
 
         Scanner scan = new Scanner(System.in);
@@ -156,7 +157,7 @@ public class MainMenu {
 
         if(input2.length()<=3){ //If input is to short restarts funktion
             System.out.println("Sorry! We dont have that genre..");
-            return menu.searchgenre();
+            return searchgenre();
         }
 
         for (int i = 0; i <search.size() ; i++) {
