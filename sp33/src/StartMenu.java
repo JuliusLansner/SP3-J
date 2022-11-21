@@ -2,13 +2,18 @@ package sp33.src;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+<<<<<<< Updated upstream
+=======
+import java.sql.SQLException;
+import java.util.ArrayList;
+>>>>>>> Stashed changes
 import java.util.Scanner;
 public class StartMenu extends UserDB{
 
     private final Scanner scanner = new Scanner(System.in);
     MainMenu goToMainMenu = new MainMenu();
     Choices gotoChoice = new Choices();
-    public void loginScreen() throws IOException {
+    public void loginScreen() throws IOException, SQLException {
         System.out.println("Welcome to Jflix");
         System.out.println("Please choose an existing user, or create a new one");
         System.out.println("Login to user 1: Press 1");
@@ -24,8 +29,14 @@ public class StartMenu extends UserDB{
         }
     }
 
+<<<<<<< Updated upstream
    public void loginExistingUser() throws IOException {
             verifyUserLogin(getUsername(), getPassword(), "Data/userDB.txt", ",");
+=======
+   public String loginExistingUser() throws IOException {
+        User user = new User();
+            String name = verifyOld(user.getUsername(), user.getPassword());
+>>>>>>> Stashed changes
             loginCheck();
     }
     public void loginCheck() throws IOException {
@@ -39,7 +50,7 @@ public class StartMenu extends UserDB{
         }
     }
 
-    public void signupuser()throws IOException {
+    public void signupuser() throws IOException, SQLException {
         signup();
 
         System.out.println("Signed up, going to the login screen");

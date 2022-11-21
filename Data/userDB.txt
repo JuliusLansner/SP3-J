@@ -4,3 +4,8 @@ seb,lmao
 mikkel,lmao
 
 Harald,27704845
+<<<<<<< Updated upstream
+=======
+Neo,TheOne
+1,2;
+>>>>>>> Stashed changes
