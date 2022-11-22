@@ -39,13 +39,15 @@ public class UserDB extends JflixDB2{
         String userName = input.nextLine();
         System.out.println("Type your password");
         String passWord = input.nextLine();
+        //sql database verifying
         User user = verifyUserLogin(userName,passWord);
+        // txt file verifying
         verifyOld(userName, passWord);
         if(user != null){
             System.out.println("yeet");
-            System.out.println(loginSuccess + "<-old text based dversion");
+            System.out.println(loginSuccess + "<-old text based version");
         } else
-            System.out.println("try agian\n"+loginSuccess+"<-old text based sversion");
+            System.out.println("try agian\n"+loginSuccess+"<-old text based version");
 
         return user;
     }
