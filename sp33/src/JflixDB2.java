@@ -6,8 +6,12 @@ import java.util.ArrayList;
 public class JflixDB2 {
 
     Connection connection; //Laver et object at connection.
+
     private String username = "root";
-    private String password = "63185276Ma";
+    //change password
+    private String password = "";
+
+    //change table name, (jflix). "?" is still needed.
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
     String query = "SELECT * FROM movies";
     String query2 = "SELECT * FROM series";

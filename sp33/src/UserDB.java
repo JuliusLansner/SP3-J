@@ -18,8 +18,10 @@ public class UserDB extends JflixDB2{
     boolean loginSuccess;
     Connection connection1; //Laver et object at connection.
     final private String username = "root";
-    final private String password = "Mevgamor970";
+    //change password
+    final private String password = "";
 
+    //change tablename (jflix). "?" is still needed.
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
 
     String query3 = "INSERT INTO user (userName, userPass)" + "VALUES(?,?)";
@@ -47,7 +49,7 @@ public class UserDB extends JflixDB2{
             System.out.println("yeet");
             System.out.println(loginSuccess + "<-old text based version");
         } else
-            System.out.println("try agian\n"+loginSuccess+"<-old text based version");
+            System.out.println("try again\n"+loginSuccess+"<-old text based version");
 
         return user;
     }
