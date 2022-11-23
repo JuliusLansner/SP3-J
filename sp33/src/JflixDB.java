@@ -3,6 +3,8 @@ package sp33.src;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,6 +16,8 @@ public class JflixDB {
     ArrayList<Movie> movieList = new ArrayList<>();
 
     ArrayList<Series>seriesList= new ArrayList<>();
+    JflixDB2 user = new JflixDB2();
+
 
     public void loadFiles(){
         getMovies();

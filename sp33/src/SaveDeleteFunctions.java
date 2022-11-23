@@ -5,15 +5,15 @@ import java.util.Scanner;
 
 public class SaveDeleteFunctions {
     UserDB userconnect = new UserDB();
-
+    mySqlConnect mySql = new mySqlConnect();
     public void deleteContent(String input) {
 
         try {
 
             //Connection to database
-            userconnect.connect();
+           mySql.connect();
 
-            Statement statement = userconnect.connection.createStatement();
+            Statement statement = mySql.connection.createStatement();
 
             //Executes the query
             statement.executeUpdate("delete from watchLater where content_title = ('" + input + "')");
@@ -24,13 +24,13 @@ public class SaveDeleteFunctions {
             e.printStackTrace();
         }
     }
-   
+
     public void watchLater(String input){
 
 
         try {
-            userconnect.connect();
-            Statement statement = userconnect.connection.createStatement();
+            mySql.connect();
+            Statement statement = mySql.connection.createStatement();
 
 
             String sql = "insert into watchLater" + "(content_title)" + " values ('"+input+"')";
@@ -44,4 +44,3 @@ public class SaveDeleteFunctions {
         }
     }
 }
-

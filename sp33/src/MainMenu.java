@@ -184,8 +184,8 @@ public class MainMenu {
 
 if(input.equalsIgnoreCase("1")) { // if movie is chosen, you get these choices.
     System.out.println("To search for movie, type 1: ");
-    System.out.println("To search sertain genre, type 2: ");
-    System.out.println("To search sertain year, type 3: ");
+    System.out.println("To search certain genre, type 2: ");
+    System.out.println("To search certain year, type 3: ");
 
     String input2 = scan.nextLine();
 

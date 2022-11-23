@@ -10,29 +10,19 @@ import java.util.Scanner;
 public class UserDB extends JflixDB2{
     //take info from user signup
     //get username and password, save in a text file
-
+mySqlConnect mySql = new mySqlConnect();
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
+
     String userData[];
 
     boolean loginSuccess;
     Connection connection1; //Laver et object at connection.
-    final private String username = "root";
-    //change password
-    final private String password = "63185276Ma";
-
     //change tablename (jflix). "?" is still needed.
-    String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
+String currentuser = "";
 
-    String query3 = "INSERT INTO user (userName, userPass)" + "VALUES(?,?)";
 
-    public void connect(){ //Laver forbindelse til databaseserveren.
-        try {
-            this.connection = DriverManager.getConnection(url,username,password); //Driver manager finder server objectet connection skal connectes til.
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 
 
     public User loginAttempt(){
@@ -47,6 +37,7 @@ public class UserDB extends JflixDB2{
         verifyOld(userName, passWord);
         if(user != null){
             System.out.println("yeet");
+
             System.out.println(loginSuccess + "<-old text based version");
         } else
             System.out.println("try again\n"+loginSuccess+"<-old text based version");
@@ -58,9 +49,9 @@ public class UserDB extends JflixDB2{
 
 
         try {
-            connect();
+            mySql.connect();
             String checkSql = "SELECT * FROM user WHERE userName=? AND userPass=?";
-            PreparedStatement prep = connection.prepareStatement(checkSql);
+            PreparedStatement prep = mySql.connection.prepareStatement(checkSql);
             prep.setString(1,userName);
             prep.setString(2,passWord);
             ResultSet resultSet = prep.executeQuery();
@@ -69,9 +60,11 @@ public class UserDB extends JflixDB2{
                 user = new User();
                 user.userName = resultSet.getString("userName");
                 user.passWord = resultSet.getString("userPass");
+
+
             }
             prep.close();
-            connection.close();
+            mySql.connection.close();
 
         }
         catch (SQLException e) {
@@ -101,7 +94,7 @@ public class UserDB extends JflixDB2{
     // SIGNUP FUNCTION
     Scanner scanner = new Scanner(System.in);
     public void signup() throws IOException, SQLException {
-        connect();
+        mySql.connect();
         JflixDB2 connectDB = new JflixDB2();
         System.out.println("Write your username:");
 
@@ -122,11 +115,11 @@ public class UserDB extends JflixDB2{
         System.out.println("Your new password is:" + password);
 
         try {
-            PreparedStatement prep = connection.prepareStatement(query3);
+            PreparedStatement prep = mySql.connection.prepareStatement(mySql.query3);
             prep.setString(1, username);
             prep.setString(2, password);
             prep.execute();
-            connection.close();
+            mySql.connection.close();
         }
         catch (Exception e)
         {
@@ -138,7 +131,7 @@ public class UserDB extends JflixDB2{
             System.out.println(e);
         }
         //Siger hvilken forbindelse der skal laves et statement til.
-
+        loginAttempt();
         //Laver holder til mit statement.
         //statementUser.execute(query3);//executer mit sql statement som får alle film fra databasen.
 
