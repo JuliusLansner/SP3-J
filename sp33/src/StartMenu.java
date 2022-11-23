@@ -10,21 +10,7 @@ public class StartMenu extends UserDB{
     private final Scanner scanner = new Scanner(System.in);
     MainMenu goToMainMenu = new MainMenu();
     Choices gotoChoice = new Choices();
-    public void loginScreen() throws IOException, SQLException {
-        System.out.println("Welcome to Jflix");
-        System.out.println("Please choose an existing user, or create a new one");
-        System.out.println("Login to user 1: Press 1");
-        System.out.println("Create a new user: Press 2");
-        System.out.println("Enter your choice: ");
-        String answer = scanner.nextLine();
-        if (answer.contains("1")) {
-            loginExistingUser();
 
-        }
-        if(answer.contains("2")){
-            signupuser();
-        }
-    }
 
    public String loginExistingUser() throws IOException {
         User user = new User();
@@ -42,12 +28,7 @@ public class StartMenu extends UserDB{
         }
     }
 
-    public void signupuser() throws IOException, SQLException {
-        signup();
 
-        System.out.println("Signed up, going to the login screen");
-        loginScreen();
-    }
 }
 
 
