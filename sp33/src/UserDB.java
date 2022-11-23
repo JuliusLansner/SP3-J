@@ -25,7 +25,7 @@ String currentuser = "";
 
 
 
-    public User loginAttempt(){
+    public String loginAttempt(){
         Scanner input = new Scanner(System.in);
         System.out.println("Type your username:");
         String userName = input.nextLine();
@@ -42,7 +42,7 @@ String currentuser = "";
         } else
             System.out.println("try again\n"+loginSuccess+"<-old text based version");
 
-        return user;
+        return userName;
     }
     public User verifyUserLogin(String userName, String passWord){
         User user = null;
@@ -93,11 +93,11 @@ String currentuser = "";
 
     // SIGNUP FUNCTION
     Scanner scanner = new Scanner(System.in);
-    public void signup() throws IOException, SQLException {
+    public String signup() throws IOException, SQLException {
         mySql.connect();
         JflixDB2 connectDB = new JflixDB2();
         System.out.println("Write your username:");
-
+String name = "";
         BufferedWriter writer = new BufferedWriter(new FileWriter("Data/userDB.txt",true));
 
         String username = scanner.nextLine();
@@ -131,13 +131,10 @@ String currentuser = "";
             System.out.println(e);
         }
         //Siger hvilken forbindelse der skal laves et statement til.
-        loginAttempt();
+        name = loginAttempt();
         //Laver holder til mit statement.
         //statementUser.execute(query3);//executer mit sql statement som får alle film fra databasen.
-
-
-
-
+        return name;
 
 
     }

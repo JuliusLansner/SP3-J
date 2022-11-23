@@ -6,7 +6,7 @@ public class mySqlConnect {
     Connection connection; //Laver et object at connection.
     private String username = "root";
     //change password
-    private String password = "Mevgamor970";
+    private String password = "63185276Ma";
     String query = "SELECT * FROM movies";
     String query2 = "SELECT * FROM series";
     String query3 = "INSERT INTO user (userName, userPass)" + "VALUES(?,?)";
