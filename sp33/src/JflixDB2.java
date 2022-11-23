@@ -9,7 +9,7 @@ public class JflixDB2 {
 
     private String username = "root";
     //change password
-    private String password = "";
+    private String password = "63185276Ma";
 
     //change table name, (jflix). "?" is still needed.
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";

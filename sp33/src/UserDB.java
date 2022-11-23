@@ -19,7 +19,7 @@ public class UserDB extends JflixDB2{
     Connection connection1; //Laver et object at connection.
     final private String username = "root";
     //change password
-    final private String password = "";
+    final private String password = "63185276Ma";
 
     //change tablename (jflix). "?" is still needed.
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
