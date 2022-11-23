@@ -5,41 +5,24 @@ import java.util.ArrayList;
 
 public class JflixDB2 {
 
-    Connection connection; //Laver et object at connection.
+    mySqlConnect mySql = new mySqlConnect();
 
-    private String username = "root";
-    //change password
-    private String password = "";
 
-    //change table name, (jflix). "?" is still needed.
-    String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
-    String query = "SELECT * FROM movies";
-    String query2 = "SELECT * FROM series";
     ArrayList<NonInteractiveFiction> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie og serie objecter.
     String movies = "";
     String series = "";
 
-    public void connect(){ //Laver forbindelse til databaseserveren.
-        try {
-            this.connection = DriverManager.getConnection(url,username,password); //Driver manager finder server objectet connection skal connectes til.
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-
     public ArrayList<String> MakeResultSetMovieList(){
         ArrayList<String> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie og serie objecter.
 
-        connect();//Laver forbindelse til server.
+       mySql.connect();//Laver forbindelse til server.
         Statement statementMovie;// Laver object af statement klassen som kan tage imod sql statements.
         Statement statementSeries;
         try {
-            statementMovie = this.connection.createStatement(); //Siger hvilken forbindelse der skal laves et statement til.
+            statementMovie = mySql.connection.createStatement(); //Siger hvilken forbindelse der skal laves et statement til.
 
             statementMovie.getResultSet();//Laver holder til mit statement.
-            statementMovie.execute(query);//executer mit sql statement som får alle film fra databasen.
+            statementMovie.execute(mySql.query);//executer mit sql statement som får alle film fra databasen.
             ResultSet set = statementMovie.getResultSet();//Laver et resultset som holder alle filmene.
 
             while(set.next()){
@@ -64,15 +47,15 @@ public class JflixDB2 {
     public ArrayList<String> MakeResultSetSeriesList(){
         ArrayList<String> collection = new ArrayList<>();
 
-        connect();//Laver forbindelse til server.
+        mySql.connect();//Laver forbindelse til server.
         Statement statementSeries;
         try {
 
 
-            statementSeries = this.connection.createStatement();
+            statementSeries = this.mySql.connection.createStatement();
 
             statementSeries.getResultSet();
-            statementSeries.execute(query2);
+            statementSeries.execute(mySql.query2);
             ResultSet set2 = statementSeries.getResultSet();
 
 

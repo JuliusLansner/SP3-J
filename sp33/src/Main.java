@@ -22,7 +22,7 @@ public class Main {
 
         UserDB user = new UserDB();
 
-        user.loginAttempt();
+        user.signup();
 
 
     }
