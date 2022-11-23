@@ -6,31 +6,7 @@ import java.util.Scanner;
 public class SaveDeleteFunctions {
     UserDB userconnect = new UserDB();
 
-
-    public void deleteMovies() {
-
-        Scanner scanner = new Scanner(System.in);
-
-        try {
-
-            //Connection to database
-            userconnect.connect();
-
-            Statement statement = userconnect.connection.createStatement();
-
-            System.out.println("What content would like to remove? ");
-            String input = scanner.next();
-
-            //This code below works. Executes the query
-            statement.executeUpdate("delete from movies where movie_title = ('" + input + "')");
-
-            System.out.println("Delete complete");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    public void deleteSeries() {
+    public void deleteContent() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -42,10 +18,10 @@ public class SaveDeleteFunctions {
             Statement statement = userconnect.connection.createStatement();
 
             System.out.println("What content would like to remove? ");
-            String input = scanner.next();
+            String input = scanner.nextLine();
 
-            //This code below works. Executes the query
-            statement.executeUpdate("delete from movies where series_title = ('" + input + "')");
+            //Executes the query
+            statement.executeUpdate("delete from watchLater where content_title = ('" + input + "')");
 
             System.out.println("Delete complete");
 
@@ -53,9 +29,28 @@ public class SaveDeleteFunctions {
             e.printStackTrace();
         }
     }
+   
+    public void watchLater(){
 
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            userconnect.connect();
+            Statement statement = userconnect.connection.createStatement();
+
+            System.out.println("Please enter the name of the content you would like to add to your watch later list: ");
+
+            String input = scanner.nextLine();
+
+            String sql = "insert into watchLater" + "(content_title)" + " values ('"+input+"')";
+
+            statement.executeUpdate(sql);
+
+            System.out.println("Content added to your watch later list");
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
-
-
-    //Create a scanner object
 
