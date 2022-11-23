@@ -9,3 +9,6 @@ Neo,TheOne;
 mal,de;
 hans,hans;
 
+8008,123;
+9,0;
+7,6;

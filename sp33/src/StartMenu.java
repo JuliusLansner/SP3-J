@@ -32,7 +32,7 @@ public class StartMenu extends UserDB{
         signup();
 
         System.out.println("Signed up, going to the login screen");
-
+        gotoChoice.choiceFunction();
     }
 }
 

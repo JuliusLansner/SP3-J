@@ -13,16 +13,11 @@ public class UserDB extends JflixDB2{
 mySqlConnect mySql = new mySqlConnect();
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
-
     String userData[];
 
     boolean loginSuccess;
     Connection connection1; //Laver et object at connection.
-    //change tablename (jflix). "?" is still needed.
-String currentuser = "";
-
-
-
+    String query3 = "INSERT INTO user (userName, userPass)" + "VALUES(?,?)";
 
 
     public User loginAttempt(){
@@ -37,7 +32,6 @@ String currentuser = "";
         verifyOld(userName, passWord);
         if(user != null){
             System.out.println("yeet");
-
             System.out.println(loginSuccess + "<-old text based version");
         } else
             System.out.println("try again\n"+loginSuccess+"<-old text based version");
@@ -46,7 +40,6 @@ String currentuser = "";
     }
     public User verifyUserLogin(String userName, String passWord){
         User user = null;
-
 
         try {
             mySql.connect();
@@ -60,8 +53,6 @@ String currentuser = "";
                 user = new User();
                 user.userName = resultSet.getString("userName");
                 user.passWord = resultSet.getString("userPass");
-
-
             }
             prep.close();
             mySql.connection.close();
@@ -76,15 +67,14 @@ String currentuser = "";
     }
     public String verifyOld(String username, String password){
         User user = new User();
-        user.getLogin();
-        user.loginListCat(user.login);
-        user.profilesArray();
-        for (int i = 0; i <user.profilesArray().size() ; i++) {
+        JflixDB2 jflixDB2 = new JflixDB2();
 
-            if (user.profilesArray().get(i).puserName.equalsIgnoreCase(username) && user.profilesArray().get(i).ppassWord.equalsIgnoreCase(password+";")) {
+        for (int i = 0; i <user.loginListCat(jflixDB2.MakeResultSetUsersList()).size() ; i++) {
+
+            if (user.loginListCat(jflixDB2.MakeResultSetUsersList()).get(i).puserName.equalsIgnoreCase(username) && user.loginListCat(jflixDB2.MakeResultSetUsersList()).get(i).ppassWord.equalsIgnoreCase(password)) {
                 loginSuccess = true;
                 //System.out.println(user.profilesArray().get(i).userName+ "old version works still");
-                return user.profilesArray().get(i).puserName;
+                return user.loginListCat(jflixDB2.MakeResultSetUsersList()).get(i).puserName;
             }
         }
         //System.out.println(user.profilesArray());
@@ -116,7 +106,7 @@ String currentuser = "";
         System.out.println("Your new password is:" + password);
 
         try {
-            PreparedStatement prep = mySql.connection.prepareStatement(mySql.query3);
+            PreparedStatement prep = mySql.connection.prepareStatement(query3);
             prep.setString(1, username);
             prep.setString(2, password);
             prep.execute();
@@ -132,11 +122,11 @@ String currentuser = "";
             System.out.println(e);
         }
         //Siger hvilken forbindelse der skal laves et statement til.
-        loginAttempt();
+
         //Laver holder til mit statement.
         //statementUser.execute(query3);//executer mit sql statement som får alle film fra databasen.
 
-
+        goToMainMenu.choiceFunction();
 
 
 

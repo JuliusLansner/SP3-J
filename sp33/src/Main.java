@@ -14,15 +14,13 @@ public class Main {
 
 
 
-       //Choices run = new Choices();
-        //run.choiceFunction();
+       Choices run = new Choices();
+       run.choiceFunction();
 
         //JflixDB2 test1 = new JflixDB2();
         //System.out.println(test1.MakeResultSetMovieList());
 
-        UserDB user = new UserDB();
 
-        user.signup();
 
 
     }
