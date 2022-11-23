@@ -15,6 +15,8 @@ public class JflixDB2 {
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
     String query = "SELECT * FROM movies";
     String query2 = "SELECT * FROM series";
+
+    String query3 = "SELECT * FROM user";
     ArrayList<NonInteractiveFiction> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie og serie objecter.
     String movies = "";
     String series = "";
@@ -84,6 +86,39 @@ public class JflixDB2 {
                 String episodes = set2.getString("series_seasons")+";";
 
                 collection.add(seriesN+year+genre+rating+episodes);
+
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return collection;
+
+    }
+
+    public ArrayList<String> MakeResultSetUsersList(){
+        ArrayList<String> collection = new ArrayList<>();
+
+        connect();//Laver forbindelse til server.
+        Statement statementUsers;
+        try {
+
+
+            statementUsers = this.connection.createStatement();
+
+            statementUsers.getResultSet();
+            statementUsers.execute(query3);
+            ResultSet set2 = statementUsers.getResultSet();
+
+
+            while(set2.next()){
+                String userName = set2.getString("userName")+";";
+                String userPass = set2.getString("userPass")+";";
+
+
+                collection.add(userName+userPass);
 
 
             }

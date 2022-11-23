@@ -83,15 +83,14 @@ public class UserDB extends JflixDB2{
     }
     public String verifyOld(String username, String password){
         User user = new User();
-        user.getLogin();
-        user.loginListCat(user.login);
-        user.profilesArray();
-        for (int i = 0; i <user.profilesArray().size() ; i++) {
+        JflixDB2 jflixDB2 = new JflixDB2();
 
-            if (user.profilesArray().get(i).puserName.equalsIgnoreCase(username) && user.profilesArray().get(i).ppassWord.equalsIgnoreCase(password+";")) {
+        for (int i = 0; i <user.loginListCat(jflixDB2.MakeResultSetUsersList()).size() ; i++) {
+
+            if (user.loginListCat(jflixDB2.MakeResultSetUsersList()).get(i).puserName.equalsIgnoreCase(username) && user.loginListCat(jflixDB2.MakeResultSetUsersList()).get(i).ppassWord.equalsIgnoreCase(password)) {
                 loginSuccess = true;
                 //System.out.println(user.profilesArray().get(i).userName+ "old version works still");
-                return user.profilesArray().get(i).puserName;
+                return user.loginListCat(jflixDB2.MakeResultSetUsersList()).get(i).puserName;
             }
         }
         //System.out.println(user.profilesArray());

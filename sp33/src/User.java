@@ -57,12 +57,12 @@ ArrayList<Profiles> loginSplit = new ArrayList<>();
     }
 
     public ArrayList<Profiles> loginListCat(ArrayList<String> data) {
-
+        ArrayList<Profiles> loginSplit = new ArrayList<>();
         String[] values = new String[0];
         for (int i = 0; i < data.size(); i++) {
             String s = data.get(i);// puts strings from data into s
 
-            values = s.split(",");
+            values = s.split(";");
 
             //Gives a variable for each index
             String name = values[0];
