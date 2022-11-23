@@ -32,7 +32,9 @@ public class Choices extends UserDB {
 
         }
         if(answer.contains("2")){
-            login.signupuser();
+            UserDB user = new UserDB();
+            user.signup();
+
         }
 
 

@@ -1,14 +1,8 @@
-Navn, password;
-julius,lmao;
-malde,lmao;
-seb,lmao;
-mikkel,lmao;
-Harald,27704845;
-Neo,TheOne;
-1,2;
-mal,de;
-hans,hans;
 
-8008,123;
-9,0;
-7,6;
+tyren,123;
+bien,123;
+humle,123;
+huen,123;
+gud,123;
+baby,123;
+lah,123;

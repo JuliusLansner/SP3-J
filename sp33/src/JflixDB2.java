@@ -4,18 +4,41 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class JflixDB2 {
+
+    Connection connection; //Laver et object at connection.
+
+    private String username = "root";
+    //change password
+    private String password = "63185276Ma";
+
+    //change table name, (jflix). "?" is still needed.
+    String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
     String query = "SELECT * FROM movies";
     String query2 = "SELECT * FROM series";
-    String query3 = "INSERT INTO user (userName, userPass)" + "VALUES(?,?)";
-    mySqlConnect mySql = new mySqlConnect();
+
+    String query3 = "SELECT * FROM user";
+    ArrayList<NonInteractiveFiction> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie og serie objecter.
+    String movies = "";
+    String series = "";
+
+    public void connect(){ //Laver forbindelse til databaseserveren.
+        try {
+            this.connection = DriverManager.getConnection(url,username,password); //Driver manager finder server objectet connection skal connectes til.
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
     public ArrayList<String> MakeResultSetMovieList(){
         ArrayList<String> collection = new ArrayList<>(); // Arrayliste til at holde alle Movie og serie objecter.
 
-        mySql.connect();//Laver forbindelse til server.
+        connect();//Laver forbindelse til server.
         Statement statementMovie;// Laver object af statement klassen som kan tage imod sql statements.
         Statement statementSeries;
         try {
-            statementMovie = this.mySql.connection.createStatement(); //Siger hvilken forbindelse der skal laves et statement til.
+            statementMovie = this.connection.createStatement(); //Siger hvilken forbindelse der skal laves et statement til.
 
             statementMovie.getResultSet();//Laver holder til mit statement.
             statementMovie.execute(query);//executer mit sql statement som får alle film fra databasen.
@@ -26,7 +49,7 @@ public class JflixDB2 {
                 String year = set.getString("movie_year")+";";
                 String genre = set.getString("movie_category")+";";
                 String rating = set.getString("movie_raing")+";";
-                collection.add(movieN+year+genre+rating);
+               collection.add(movieN+year+genre+rating);
             }
 
 
@@ -43,12 +66,12 @@ public class JflixDB2 {
     public ArrayList<String> MakeResultSetSeriesList(){
         ArrayList<String> collection = new ArrayList<>();
 
-        mySql.connect();//Laver forbindelse til server.
+        connect();//Laver forbindelse til server.
         Statement statementSeries;
         try {
 
 
-            statementSeries = this.mySql.connection.createStatement();
+            statementSeries = this.connection.createStatement();
 
             statementSeries.getResultSet();
             statementSeries.execute(query2);
@@ -78,12 +101,12 @@ public class JflixDB2 {
     public ArrayList<String> MakeResultSetUsersList(){
         ArrayList<String> collection = new ArrayList<>();
 
-        mySql.connect();//Laver forbindelse til server.
+        connect();//Laver forbindelse til server.
         Statement statementUsers;
         try {
 
 
-            statementUsers = this.mySql.connection.createStatement();
+            statementUsers = this.connection.createStatement();
 
             statementUsers.getResultSet();
             statementUsers.execute(query3);

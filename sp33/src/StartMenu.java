@@ -12,11 +12,11 @@ public class StartMenu extends UserDB{
     Choices gotoChoice = new Choices();
 
 
-    public String loginExistingUser() throws IOException {
+   public String loginExistingUser() throws IOException {
         User user = new User();
-        String name = verifyOld(user.getUsername(), user.getPassword());
-        loginCheck();
-        return name;
+            String name = verifyOld(user.getUsername(), user.getPassword());
+            loginCheck();
+            return name;
     }
     public void loginCheck() throws IOException {
         if (loginSuccess == true){
@@ -28,12 +28,7 @@ public class StartMenu extends UserDB{
         }
     }
 
-    public void signupuser() throws IOException, SQLException {
-        signup();
 
-        System.out.println("Signed up, going to the login screen");
-        gotoChoice.choiceFunction();
-    }
 }
 
 
