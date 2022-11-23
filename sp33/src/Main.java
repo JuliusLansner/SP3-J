@@ -30,8 +30,13 @@ public class Main {
         //test1.choiceFunction();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         StartMenu test2 = new StartMenu();
         test2.loginScreen();
+=======
+       Choices run = new Choices();
+        run.choiceFunction();
+>>>>>>> Stashed changes
 
         //Til at checke hvordan watchlist ser ud
         //JflixDB checklist = new JflixDB();
@@ -39,6 +44,13 @@ public class Main {
 =======
         //JflixDB2 test1 = new JflixDB2();
         //System.out.println(test1.MakeResultSetMovieList());
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
+        //UserDB user = new UserDB();
+
+        //user.loginAttempt();
 >>>>>>> Stashed changes
 
 

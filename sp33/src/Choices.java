@@ -67,6 +67,7 @@ if(input.equals("1") && checkWatchList(userName +" "+ play) == false) {
         BufferedWriter writer = new BufferedWriter(new FileWriter("Data/ContentWatched.txt", true));
 //en writer til savedcontent filen
         BufferedWriter writer2 = new BufferedWriter(new FileWriter("Data/SavedContent.txt", true));
+        SaveDeleteFunctions savedelete = new SaveDeleteFunctions();
 //Hvis man vælger play
         if (input.equals("1") && checkWatchList(name + " " + play) == false) {
             writer.write("\n" + name + " " + play);
@@ -77,14 +78,16 @@ if(input.equals("1") && checkWatchList(userName +" "+ play) == false) {
 
 //Hvis man vælger savecontent
         if (input.equals("2") && checkSavedContentList(name + " " + play) == false) {
-            writer2.write("\n" + name + " " + play);
-            writer2.close();
+            //writer2.write("\n" + name + " " + play);
+            //writer2.close();
+            savedelete.watchLater(name+" "+play);
         } else if (input.equals("2") && checkSavedContentList(name + " " + play) == true) {
             System.out.println("already saved this");
         }
 
         if(input.equals("3")){
-            removeRecord("Data/SavedContent.txt");
+            //removeRecord("Data/SavedContent.txt");
+            savedelete.deleteContent(name+" "+play);
         }
 
     }

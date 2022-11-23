@@ -53,7 +53,12 @@ public class UserDB extends JflixDB2{
     boolean loginSuccess;
     Connection connection1; //Laver et object at connection.
     final private String username = "root";
+<<<<<<< Updated upstream
     final private String password = "Mevgamor970";
+=======
+    //change password
+    final private String password = "63185276Ma";
+>>>>>>> Stashed changes
 
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
 

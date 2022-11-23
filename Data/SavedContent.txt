@@ -1,0 +1,6 @@
+<<<<<<< Updated upstream
+=======
+Name ,Year, Genre, rating
+Harald Star Wars Action, Adventure, Family 1977 8,6
+Neo The Godfather Crime, Drama 19729.2
+>>>>>>> Stashed changes
