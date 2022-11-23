@@ -2,11 +2,8 @@ package sp33.src;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-<<<<<<< Updated upstream
-=======
 import java.sql.SQLException;
 import java.util.ArrayList;
->>>>>>> Stashed changes
 import java.util.Scanner;
 public class StartMenu extends UserDB{
 
@@ -29,14 +26,11 @@ public class StartMenu extends UserDB{
         }
     }
 
-<<<<<<< Updated upstream
    public void loginExistingUser() throws IOException {
             verifyUserLogin(getUsername(), getPassword(), "Data/userDB.txt", ",");
-=======
    public String loginExistingUser() throws IOException {
         User user = new User();
             String name = verifyOld(user.getUsername(), user.getPassword());
->>>>>>> Stashed changes
             loginCheck();
     }
     public void loginCheck() throws IOException {

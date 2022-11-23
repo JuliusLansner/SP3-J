@@ -2,26 +2,22 @@ package sp33.src;
 
 
 import java.io.*;
-<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserDB extends User {
-=======
 import java.sql.*;
 import java.util.Scanner;
 
 
 
 public class UserDB extends JflixDB2{
->>>>>>> Stashed changes
     //take info from user signup
     //get username and password, save in a text file
 
 
     String filepath = "Data/userDB.txt";
     MainMenu goToMainMenu = new MainMenu();
-<<<<<<< Updated upstream
 
     boolean loginSuccess;
 
@@ -47,18 +43,14 @@ public class UserDB extends JflixDB2{
             return loginSuccess = true;
         }
     }
-=======
     String userData[];
 
     boolean loginSuccess;
     Connection connection1; //Laver et object at connection.
     final private String username = "root";
-<<<<<<< Updated upstream
     final private String password = "Mevgamor970";
-=======
     //change password
     final private String password = "63185276Ma";
->>>>>>> Stashed changes
 
     String url = "jdbc:mysql://localhost:3306/jflix?" + "autoReconnect=true&useSSL=false";
 
@@ -88,12 +80,10 @@ public class UserDB extends JflixDB2{
        return user;
     }
 
->>>>>>> Stashed changes
 
     public User verifyUserLogin(String userName, String passWord){
         User user = null;
 
-<<<<<<< Updated upstream
 
     }
     //catch, a failsafe.
@@ -102,7 +92,6 @@ public class UserDB extends JflixDB2{
     }
         return loginSuccess = false;
    }
-=======
         try {
             connect();
             String checkSql = "SELECT * FROM user WHERE userName=? AND userPass=?";
@@ -139,7 +128,6 @@ public String verifyOld(String username, String password){
             return user.profilesArray().get(i).puserName;
         }
     }
->>>>>>> Stashed changes
 
     loginSuccess = false;
     return "Wrong - text file method";

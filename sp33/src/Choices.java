@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class Choices extends UserDB {
     String filepath = "Data/ContentWatched.txt";
-<<<<<<< Updated upstream
 MainMenu test = new MainMenu();
     saveMenu save = new saveMenu();
     public void choiceFunction() throws IOException {
@@ -26,7 +25,6 @@ if(input.equals("1") && checkWatchList(userName +" "+ play) == false) {
 }else{
     System.out.println("You already watched this");
 }
-=======
     MainMenu test = new MainMenu();
 
 
@@ -103,7 +101,6 @@ if(input.equals("1") && checkWatchList(userName +" "+ play) == false) {
         }
 
         return false;
->>>>>>> Stashed changes
     }
 
 public boolean checkWatchList(String input) {
